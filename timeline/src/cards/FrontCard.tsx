@@ -7,16 +7,10 @@ export default function Card({ card }: { card: Carte }) {
       <h2 className="text-xl font-bold text-center mb-4">{card.titre}</h2>
 
       <div className="flex flex-col gap-2 text-sm">
-        <div>
-          <span className="font-semibold">Thématique :</span> {card.thematique}
-        </div>
-        <div>
-          <span className="font-semibold">Type :</span> {card.type}
-        </div>
-        <div>
-          <span className="font-semibold">Date :</span>{" "}
-          {new Date(card.date).toLocaleDateString()}
-        </div>
+        <p className="font-semibold"> Thématique : {card.thematique}</p>
+        <p className="font-semibold"> Type : {card.type}</p>
+        <p className="font-semibold"> Titre : {card.titre}</p>
+        <p className="font-semibold"> Date : {card.date}</p>
       </div>
     </div>
   );

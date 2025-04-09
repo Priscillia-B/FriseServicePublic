@@ -6,7 +6,6 @@ import FrontCard from "./cards/FrontCard";
 import { Carte } from "./types";
 
 function App() {
-  const [count, setCount] = useState(0);
   const exempleCarte: Carte = {
     id: 1,
     thematique: "Écologie",
@@ -18,7 +17,7 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col items-center bg-gradient-to-br from-zinc-900 to-purple-900 min-h-screen">
+    <div className="flex items-center justify-center min-h-screen min-w-screen bg-white">
       <FrontCard card={exempleCarte} />
     </div>
   );
