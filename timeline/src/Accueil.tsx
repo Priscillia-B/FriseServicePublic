@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { 
+import {
   faPlay,
-  faUsers, 
-  faTrophy, 
-  faBalanceScale, 
-  faHeartbeat, 
-  faHouse, 
-  faGraduationCap, 
-  faShieldHalved 
+  faUsers,
+  faTrophy,
+  faBalanceScale,
+  faHeartbeat,
+  faHouse,
+  faGraduationCap,
+  faShieldHalved
 } from '@fortawesome/free-solid-svg-icons';
 import "tailwindcss";
 
@@ -22,21 +22,26 @@ function Accueil() {
   };
 
   return (
-    <div className="relative h-screen w-screen bg-gradient-to-b from-[#E5ECF4] to-[#cfd8e8] flex flex-col items-center justify-center font-sans overflow-hidden">
+    <div className="relative min-h-screen min-w-screen bg-gradient-to-b from-[#E5ECF4] to-[#cfd8e8] flex flex-col items-center justify-center font-sans overflow-hidden">
 
       {/* Watermark géant */}
       <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 -rotate-12 text-[140px] font-bold text-[#2D2DA0] opacity-5 select-none pointer-events-none z-0">
-        Republik’Line
+        FriseServicePublic
       </div>
 
-      {/* Icône décorative */}
-      <div className="absolute bottom-10 left-10 opacity-10 text-[80px] text-[#2D2DA0] select-none pointer-events-none z-0">
-        ⚖️
+      {/* Icônes de fond réparties sur toute la surface */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+
+        <FontAwesomeIcon icon={faBalanceScale} className="absolute top-10 left-10 text-6xl text-[#2D2DA0] opacity-10" />
+        <FontAwesomeIcon icon={faHeartbeat} className="absolute top-10 right-10 text-6xl text-[#2D2DA0] opacity-10" />
+        <FontAwesomeIcon icon={faHouse} className="absolute bottom-10 left-10 text-6xl text-[#2D2DA0] opacity-10" />
+        <FontAwesomeIcon icon={faGraduationCap} className="absolute bottom-10 right-10 text-6xl text-[#2D2DA0] opacity-10" />
+        <FontAwesomeIcon icon={faShieldHalved} className="absolute top-10 left-1/2 transform -translate-x-1/2 text-6xl text-[#2D2DA0] opacity-10" />
       </div>
 
       {/* Carte d'accueil */}
       <div className="bg-[#E63946] rounded-2xl p-10 w-full max-w-lg text-white shadow-xl z-10">
-        <h1 className="text-4xl font-bold text-center mb-8">Republik’Line</h1>
+        <h1 className="text-4xl font-bold text-center mb-8">FriseServicePublic</h1>
 
         <div className="space-y-6">
           {/* Nombre de joueurs */}
