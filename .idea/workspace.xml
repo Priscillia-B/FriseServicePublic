@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f55694d5-73e6-44d4-9bdc-88bf0bcb9e24" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/cjs/react-dom-client.development.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/cjs/react-dom-client.production.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/cjs/react-dom-profiling.development.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/cjs/react-dom-profiling.profiling.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/cjs/react-dom-server-legacy.browser.development.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/cjs/react-dom-server-legacy.browser.production.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/cjs/react-dom-server-legacy.node.production.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/cjs/react-dom-server.browser.development.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/cjs/react-dom-server.browser.production.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/cjs/react-dom-server.bun.development.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/cjs/react-dom-server.bun.production.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/cjs/react-dom-server.edge.development.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/cjs/react-dom-server.edge.production.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/cjs/react-dom-server.node.development.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/cjs/react-dom-server.node.production.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/cjs/react-dom-test-utils.development.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/cjs/react-dom-test-utils.production.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/cjs/react-dom.development.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/cjs/react-dom.production.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/cjs/react-dom.react-server.development.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/cjs/react-dom.react-server.production.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/client.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/client.react-server.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/profiling.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/profiling.react-server.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/react-dom.react-server.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/server.browser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/server.bun.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/server.edge.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/server.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/server.node.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/server.react-server.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/static.browser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/static.edge.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/static.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/static.node.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/static.react-server.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-dom/test-utils.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react/cjs/react-compiler-runtime.development.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react/cjs/react-compiler-runtime.production.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react/cjs/react-compiler-runtime.profiling.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react/cjs/react-jsx-dev-runtime.development.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react/cjs/react-jsx-dev-runtime.production.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react/cjs/react-jsx-dev-runtime.profiling.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react/cjs/react-jsx-dev-runtime.react-server.development.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react/cjs/react-jsx-dev-runtime.react-server.production.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react/cjs/react-jsx-runtime.development.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react/cjs/react-jsx-runtime.production.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react/cjs/react-jsx-runtime.profiling.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react/cjs/react-jsx-runtime.react-server.development.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react/cjs/react-jsx-runtime.react-server.production.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react/cjs/react.development.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react/cjs/react.production.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react/cjs/react.react-server.development.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react/cjs/react.react-server.production.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react/compiler-runtime.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react/jsx-dev-runtime.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react/jsx-dev-runtime.react-server.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react/jsx-runtime.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react/jsx-runtime.react-server.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react/react.react-server.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/scheduler/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/scheduler/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/scheduler/cjs/scheduler-unstable_mock.development.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/scheduler/cjs/scheduler-unstable_mock.production.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/scheduler/cjs/scheduler-unstable_post_task.development.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/scheduler/cjs/scheduler-unstable_post_task.production.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/scheduler/cjs/scheduler.development.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/scheduler/cjs/scheduler.native.development.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/scheduler/cjs/scheduler.native.production.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/scheduler/cjs/scheduler.production.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/scheduler/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/scheduler/index.native.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/scheduler/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/scheduler/unstable_mock.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/scheduler/unstable_post_task.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/timeline/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/timeline/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/timeline/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/timeline/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/timeline/src/cards/FrontCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/timeline/src/cards/FrontCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/timeline/src/components/Card.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/timeline/src/components/TimeLineBoard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/timeline/src/components/TimeLineBoard.tsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2vUSAWLNBoXBPUMkEKLiD1lwX93" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "nathan",
+    "last_opened_file_path": "//wsl.localhost/Ubuntu/home/spooky/TimeLineT3/t-4-timeline",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.dev.executor": "Run",
+    "settings.editor.selected.configurable": "configurable.tailwindcss",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="\\wsl.localhost\Ubuntu\home\spooky\TimeLineT3\t-4-timeline\timeline\src\pages" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/timeline/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="$APPLICATION_CONFIG_DIR$/node/versions/22.12.0/node" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.dev" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-WS-243.26053.12" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f55694d5-73e6-44d4-9bdc-88bf0bcb9e24" name="Changes" comment="" />
+      <created>1744198016965</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1744198016965</updated>
+      <workItem from="1744198018285" duration="2173000" />
+      <workItem from="1744200226878" duration="840000" />
+      <workItem from="1744201086294" duration="4809000" />
+      <workItem from="1744205978978" duration="623000" />
+      <workItem from="1744206625196" duration="698000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
