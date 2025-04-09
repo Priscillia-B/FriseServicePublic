@@ -1,6 +1,3 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import FrontCard from "./cards/FrontCard";
 import { Carte } from "./types";
@@ -17,9 +14,7 @@ function App() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen min-w-screen bg-white">
-      <FrontCard card={exempleCarte} />
-    </div>
+    <div className="flex items-center justify-center min-h-screen min-w-screen bg-white"></div>
   );
 }
 
