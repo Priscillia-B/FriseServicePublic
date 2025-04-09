@@ -15,10 +15,16 @@ import "tailwindcss";
 function Accueil() {
   const [nbPlayers, setNbPlayers] = useState<number | null>(null);
   const [nbPoints, setNbPoints] = useState<number | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const handleStart = () => {
-    console.log("Nombre de joueurs :", nbPlayers);
-    console.log("Points pour gagner :", nbPoints);
+    if (nbPlayers === null || nbPoints === null) {
+      setError("Veuillez remplir tous les champs avant de commencer !");
+    } else {
+      setError(null);
+      // on va vers la page game
+    }
+
   };
 
   return (
@@ -83,7 +89,13 @@ function Accueil() {
               }}
               min="1"
             />
-          </div>
+          </div>  
+
+          {error && (
+            <div className="text-white font-semibold">
+              <p className="text-center">{error}</p>
+            </div>
+          )}
 
           {/* Bouton Start */}
           <button
