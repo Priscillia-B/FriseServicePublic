@@ -1,35 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+import FrontCard from "./cards/FrontCard";
+import { Carte } from "./types";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  const exempleCarte: Carte = {
+    id: 1,
+    thematique: "Écologie",
+    type: "Article",
+    titre: "Changement climatique",
+    date: 2020,
+    detail:
+      "Cet article explore les conséquences du réchauffement climatique sur la biodiversité.",
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="flex flex-col items-center bg-gradient-to-br from-zinc-900 to-purple-900 min-h-screen">
+      <FrontCard card={exempleCarte} />
+    </div>
+  );
 }
 
-export default App
+export default App;
