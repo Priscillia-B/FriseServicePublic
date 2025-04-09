@@ -1,10 +1,10 @@
 import React from "react";
 import { Carte } from "../types";
 
-export default function Card({ card }: { card: Carte }) {
+export default function FrontCard({ card }: { card: Carte }) {
   return (
-    <div className="bg-[#E5ECF4] rounded-2xl shadow-lg  pb-8 text-black flex flex-col items-center justify-center gap-2 text-sm w-64">
-      <div className="bg-[#2D2DA0] font-semibold rounded-3xl py-1 text-white w-full">
+    <div className="bg-[#E5ECF4] rounded-2xl shadow-lg  pb-8 text-black flex flex-col items-center justify-center gap-2 text-sm w-48 h-52 text-center">
+      <div className="bg-[#2D2DA0] font-semibold rounded-t-2xl py-2 mt-0 text-white w-full">
         {card.thematique}
       </div>
 
