@@ -13,16 +13,16 @@ function Accueil() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F2F2F7] flex items-center justify-center p-4 font-sans">
-      <div className="bg-[#E63946] rounded-2xl shadow-xl p-8 w-full max-w-md text-white">
-        <h1 className="text-3xl font-bold text-center mb-6">Republik’Line</h1>
+    <div className="h-screen w-screen bg-[#E63946] flex items-center justify-center font-sans ">
+      <div className="bg-[#E63946] rounded-2xl p-8 w-full max-w-lg text-white shadow-xl ">
+        <h1 className="text-4xl font-bold text-center mb-8">Republik’Line</h1>
 
-        <div className="space-y-4">
+        <div className="space-y-6">
           {/* Nombre de joueurs */}
           <div>
-            <label className="block text-sm font-medium mb-1">Nombre de joueurs</label>
+            <label className="block text-lg font-medium mb-2">Nombre de joueurs</label>
             <select
-              className="w-full p-2 rounded-md bg-white text-black border border-gray-300"
+              className="w-full p-3 rounded-md bg-white text-black border-none text-lg focus:outline-none"
               onChange={(e) => setNbPlayers(parseInt(e.target.value))}
               defaultValue=""
             >
@@ -35,11 +35,11 @@ function Accueil() {
 
           {/* Nombre de points */}
           <div>
-            <label className="block text-sm font-medium mb-1">Points pour gagner</label>
+            <label className="block text-lg font-medium mb-2">Points pour gagner</label>
             <input
               type="number"
               placeholder="Ex: 10"
-              className="w-full p-2 rounded-md bg-white text-black border border-gray-300"
+              className="w-full p-3 rounded-md bg-white text-black border-none text-lg focus:outline-none"
               value={nbPoints ?? ''}
               onChange={(e) => setNbPoints(parseInt(e.target.value))}
             />
@@ -48,7 +48,7 @@ function Accueil() {
           {/* Bouton Start */}
           <button
             onClick={handleStart}
-            className="w-full bg-[#2D2DA0] hover:bg-[#1c1c80] text-white font-semibold py-2 rounded-xl flex items-center justify-center gap-2 mt-4"
+            className="w-full bg-[#2D2DA0] hover:bg-[#1c1c80] text-white font-semibold py-3 rounded-xl flex items-center justify-center gap-3 mt-6 text-lg"
           >
             <FontAwesomeIcon icon={faPlay} />
             Démarrer la partie
