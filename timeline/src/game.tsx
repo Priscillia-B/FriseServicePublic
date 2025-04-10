@@ -7,7 +7,9 @@ import { TimelineBoard } from './components/TimelineBoard';
 export default function Game() {
   const [deck, setDeck] = useState<Carte[]>([]);
   const [placedCards, setPlacedCards] = useState<Carte[]>([]);
+  const [tempPlaced, setTempPlaced] = useState<Carte[]>([]);
   const [currentCardIndex, setCurrentCardIndex] = useState<number>(0);
+  const [loading, setLoading] = useState<boolean>(true);
 
   // Temporaire (peut-être)
   const hasPlacedCard = useRef(false);
@@ -17,22 +19,24 @@ export default function Game() {
       console.log("Data fetched:", data);
       setDeck(data);
       setCurrentCardIndex(Math.floor(Math.random() * data.length));
+      setLoading(false);
     });
   }, []);
 
   useEffect(() => {
     if (deck.length > 0 && !hasPlacedCard.current) {
+      placedCards.push(getCurrentCard());
       placeCard(0);
       hasPlacedCard.current = true;
       }
   }, [deck]);
 
-  //Fonction qui prend deux index de carte, et transfert la carte du premier index du deck vers placedCards à l'emplacement du second index
+  //Fonction qui prend un index de carte, et transfert la carte actuelle du deck vers placedCards à l'emplacement de l'index
   const placeCard = (indexTo: number) => {
     const cardToPlace = deck[currentCardIndex];
-    const newDeck = [...deck];
+    /*const newDeck = [...deck];
     newDeck.splice(currentCardIndex, 1);
-    setDeck(newDeck);
+    setDeck(newDeck);*/
 
     const newPlacedCards = [...placedCards];
     if (indexTo >= newPlacedCards.length) {
@@ -40,25 +44,26 @@ export default function Game() {
     } else {
       newPlacedCards.splice(indexTo, 0, cardToPlace);
     }
-    setPlacedCards(newPlacedCards);
+    setTempPlaced(newPlacedCards);
+    //setCurrentCardIndex(Math.floor(Math.random() * newDeck.length));
   }
 
   //Fonction pour récupérer la carte en cours
   const getCurrentCard = () => {
-    if (deck.length > 0) {
       return deck[currentCardIndex];
-    }
-    return null;
   }
     
 
   return (
-    // Le padding top déplace le contenu vers le haut et le padding bottom laisse de l'espace en bas
     <div className="flex flex-col items-center bg-white min-h-screen pt-12 pb-40">
-      <h1 className="text-3xl font-bold mb-8">Jeu TimeLine</h1>
-      
-      {/* TimelineBoard */}
-      <TimelineBoard cards={placedCards} onClick={placeCard} />
+      {loading ? (
+        <h1 className="text-3xl font-bold mb-8">Chargement...</h1>
+      ) : (
+        <>
+          <h1 className="text-3xl font-bold mb-8">Jeu TimeLine</h1>
+          <TimelineBoard cards={tempPlaced} onClick={placeCard} />
+        </>
+      )}
     </div>
   );
 }

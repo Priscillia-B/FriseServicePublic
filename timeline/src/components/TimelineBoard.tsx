@@ -6,9 +6,11 @@ import FrontCard from '../cards/FrontCard';
 interface TimelineBoardProps {
   cards: Carte[];
   onClick: (indexTo: number) => void;
+  tempCard?: Carte;
+  tempIndex?: number;
 }
 
-export const TimelineBoard: React.FC<TimelineBoardProps> = ({ cards, onClick }) => {
+export const TimelineBoard: React.FC<TimelineBoardProps> = ({ cards, onClick, tempCard, tempIndex }) => {
   return (
     <div
       className="
@@ -32,9 +34,15 @@ export const TimelineBoard: React.FC<TimelineBoardProps> = ({ cards, onClick }) 
       <div className="flex space-x-4 whitespace-nowrap">
         {cards.map((card, i) => ( <>
             <PlaceButton key={i+1000} to={i} onClick={onClick} />
+            {tempCard && tempIndex === i && (
+              <FrontCard key="tempCard" card={tempCard} />
+            )}
             <FrontCard key={card.id} card={card} />
             </>
         ))}
+        {tempCard && tempIndex === cards.length && (
+          <FrontCard key="tempCard-end" card={tempCard} />
+        )}
         <PlaceButton key={1000} to={cards.length} onClick={onClick} />
       </div>
     </div>
