@@ -128,7 +128,10 @@ export default function Game() {
 
     // Mettre à jour les vies : si tempIndex est incorrect, diminuer les vies
     const updatedPlayers = [...players];
-    if (tempIndex !== (insertIndex === -1 ? newPlacedCards.length - 1 : insertIndex)) {
+    if (
+      tempIndex !==
+      (insertIndex === -1 ? newPlacedCards.length - 1 : insertIndex)
+    ) {
       updatedPlayers[currentPlayerIndex].pv--;
     }
     setPlayers(updatedPlayers);
@@ -154,15 +157,28 @@ export default function Game() {
 
   return (
     <div className="flex flex-col items-center bg-[#cfd8e8] h-screen pt-10 relative">
-
-
       {/* Icônes de fond réparties sur toute la surface */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        <FontAwesomeIcon icon={faBalanceScale} className="absolute top-10 left-10 text-6xl text-[#2D2DA0] opacity-10" />
-        <FontAwesomeIcon icon={faHeartbeat} className="absolute top-10 right-10 text-6xl text-[#2D2DA0] opacity-10" />
-        <FontAwesomeIcon icon={faHouse} className="absolute bottom-10 left-10 text-6xl text-[#2D2DA0] opacity-10" />
-        <FontAwesomeIcon icon={faGraduationCap} className="absolute bottom-10 right-10 text-6xl text-[#2D2DA0] opacity-10" />
-        <FontAwesomeIcon icon={faShieldHalved} className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-6xl text-[#2D2DA0] opacity-10" />
+        <FontAwesomeIcon
+          icon={faBalanceScale}
+          className="absolute top-10 left-10 text-6xl text-[#2D2DA0] opacity-10"
+        />
+        <FontAwesomeIcon
+          icon={faHeartbeat}
+          className="absolute top-10 right-10 text-6xl text-[#2D2DA0] opacity-10"
+        />
+        <FontAwesomeIcon
+          icon={faHouse}
+          className="absolute bottom-10 left-10 text-6xl text-[#2D2DA0] opacity-10"
+        />
+        <FontAwesomeIcon
+          icon={faGraduationCap}
+          className="absolute bottom-10 right-10 text-6xl text-[#2D2DA0] opacity-10"
+        />
+        <FontAwesomeIcon
+          icon={faShieldHalved}
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-6xl text-[#2D2DA0] opacity-10"
+        />
       </div>
 
       <h1 className="text-6xl font-extrabold mb-12 flex justify-center space-x-4">
@@ -174,15 +190,15 @@ export default function Game() {
         <h1 className="text-3xl font-bold mb-8">Chargement...</h1>
       ) : (
         <>
-
           <div className="mb-20  w-full max-h-30 overflow-y-auto flex flex-col items-center scrollbar-custom">
             <p className="text-lg">Joueur courant : {currentPlayerIndex + 1}</p>
             <div className="flex gap-2 mt-2 flex-wrap justify-center">
               {players.map((p, idx) => (
                 <div
                   key={p.id}
-                  className={`min-w-[140px] px-4 py-2 rounded text-sm text-center whitespace-nowrap ${idx === currentPlayerIndex ? "bg-blue-200" : "bg-gray-200"
-                    }`}
+                  className={`min-w-[140px] px-4 py-2 rounded text-sm text-center whitespace-nowrap ${
+                    idx === currentPlayerIndex ? "bg-blue-200" : "bg-gray-200"
+                  }`}
                 >
                   Joueur {p.id + 1} : {p.pv} vies
                 </div>
@@ -196,12 +212,18 @@ export default function Game() {
             currentCard={getCurrentCard()}
             tempIndex={tempIndex}
           />
-          <div className="mt-20">  <BackCard card={getCurrentCard()} /> </div>
+          <div className="mt-10">
+            {" "}
+            <BackCard card={getCurrentCard()} />{" "}
+          </div>
 
           <button
             onClick={handlePlaceCard}
             disabled={tempIndex === undefined}
-            className="bg-blue-500 text-white px-4 py-2 rounded mt-4 text-lg transition-transform duration-300 ease-in-out hover:scale-105 cursor-pointer hover:bg-blue-600 shadow-md" >Valider</button>
+            className="bg-blue-500 text-white px-4 py-2 rounded mt-4 text-lg transition-transform duration-300 ease-in-out hover:scale-105 cursor-pointer hover:bg-blue-600 shadow-md"
+          >
+            Valider
+          </button>
 
           <button
             className="absolute top-1 right-5 text-white font-semibold bg-red-500 py-1 px-2 rounded m-4 cursor-pointer text-lg transition-transform duration-300 ease-in-out hover:scale-105 hover:bg-red-600 shadow-md"
