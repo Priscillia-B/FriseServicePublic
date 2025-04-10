@@ -1,14 +1,17 @@
 // src/components/TimelineBoard.tsx
-import React from 'react';
-import { Carte } from '../types';
-import FrontCard from '../cards/FrontCard';
+import React from "react";
+import { Carte } from "../types";
+import FrontCard from "./cards/FrontCard";
 
 interface TimelineBoardProps {
   cards: Carte[];
   onClick: (indexTo: number) => void;
 }
 
-export const TimelineBoard: React.FC<TimelineBoardProps> = ({ cards, onClick }) => {
+export const TimelineBoard: React.FC<TimelineBoardProps> = ({
+  cards,
+  onClick,
+}) => {
   return (
     <div
       className="
@@ -30,10 +33,11 @@ export const TimelineBoard: React.FC<TimelineBoardProps> = ({ cards, onClick }) 
       "
     >
       <div className="flex space-x-4 whitespace-nowrap">
-        {cards.map((card, i) => ( <>
-            <PlaceButton key={i+1000} to={i} onClick={onClick} />
+        {cards.map((card, i) => (
+          <>
+            <PlaceButton key={i + 1000} to={i} onClick={onClick} />
             <FrontCard key={card.id} card={card} />
-            </>
+          </>
         ))}
         <PlaceButton key={1000} to={cards.length} onClick={onClick} />
       </div>
@@ -50,7 +54,10 @@ export const TimelineBoard: React.FC<TimelineBoardProps> = ({ cards, onClick }) 
       <button
         onClick={() => onClick(to)}
         className="bg-blue-500 text-white px-4 py-2 rounded"
-      > + </button>
+      >
+        {" "}
+        +{" "}
+      </button>
     );
   }
 };

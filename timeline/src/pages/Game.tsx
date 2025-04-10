@@ -1,8 +1,8 @@
 // src/pages/Game.tsx
-import React, { useState, useEffect, useRef } from 'react';
-import fetchData from './api';
-import { Carte } from './types';
-import { TimelineBoard } from './components/TimelineBoard';
+import { useState, useEffect, useRef } from "react";
+import fetchData from "../api";
+import { Carte } from "../types";
+import { TimelineBoard } from "../components/TimelineBoard";
 
 export default function Game() {
   const [deck, setDeck] = useState<Carte[]>([]);
@@ -24,7 +24,7 @@ export default function Game() {
     if (deck.length > 0 && !hasPlacedCard.current) {
       placeCard(0);
       hasPlacedCard.current = true;
-      }
+    }
   }, [deck]);
 
   //Fonction qui prend deux index de carte, et transfert la carte du premier index du deck vers placedCards à l'emplacement du second index
@@ -41,7 +41,7 @@ export default function Game() {
       newPlacedCards.splice(indexTo, 0, cardToPlace);
     }
     setPlacedCards(newPlacedCards);
-  }
+  };
 
   //Fonction pour récupérer la carte en cours
   const getCurrentCard = () => {
@@ -49,14 +49,13 @@ export default function Game() {
       return deck[currentCardIndex];
     }
     return null;
-  }
-    
+  };
 
   return (
     // Le padding top déplace le contenu vers le haut et le padding bottom laisse de l'espace en bas
     <div className="flex flex-col items-center bg-white min-h-screen pt-12 pb-40">
       <h1 className="text-3xl font-bold mb-8">Jeu TimeLine</h1>
-      
+
       {/* TimelineBoard */}
       <TimelineBoard cards={placedCards} onClick={placeCard} />
     </div>
