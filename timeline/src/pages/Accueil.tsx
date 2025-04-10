@@ -77,7 +77,7 @@ function Accueil() {
           {/* Nombre de points */}
           <div>
             <label className="block text-lg font-medium mb-2 flex items-center gap-2">
-              Points pour gagner
+              Points de vie
               <FontAwesomeIcon icon={faTrophy} />
             </label>
             <input
