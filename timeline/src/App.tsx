@@ -1,9 +1,7 @@
 // src/App.tsx
-import React from 'react';
-import { HashRouter, Routes, Route } from 'react-router-dom';
-import Accueil from './Accueil';
-import Game from './game';
-import './App.css';
+import { HashRouter, Routes, Route } from "react-router-dom";
+import Accueil from "./pages/Accueil";
+import Game from "./pages/Game";
 
 function App() {
   return (

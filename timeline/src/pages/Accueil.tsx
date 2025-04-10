@@ -1,5 +1,5 @@
 // src/pages/Accueil.tsx
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Import de useNavigate
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -39,16 +39,33 @@ function Accueil() {
 
       {/* Icônes de fond réparties sur toute la surface */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        <FontAwesomeIcon icon={faBalanceScale} className="absolute top-10 left-10 text-6xl text-[#2D2DA0] opacity-10" />
-        <FontAwesomeIcon icon={faHeartbeat} className="absolute top-10 right-10 text-6xl text-[#2D2DA0] opacity-10" />
-        <FontAwesomeIcon icon={faHouse} className="absolute bottom-10 left-10 text-6xl text-[#2D2DA0] opacity-10" />
-        <FontAwesomeIcon icon={faGraduationCap} className="absolute bottom-10 right-10 text-6xl text-[#2D2DA0] opacity-10" />
-        <FontAwesomeIcon icon={faShieldHalved} className="absolute top-10 left-1/2 transform -translate-x-1/2 text-6xl text-[#2D2DA0] opacity-10" />
+        <FontAwesomeIcon
+          icon={faBalanceScale}
+          className="absolute top-10 left-10 text-6xl text-[#2D2DA0] opacity-10"
+        />
+        <FontAwesomeIcon
+          icon={faHeartbeat}
+          className="absolute top-10 right-10 text-6xl text-[#2D2DA0] opacity-10"
+        />
+        <FontAwesomeIcon
+          icon={faHouse}
+          className="absolute bottom-10 left-10 text-6xl text-[#2D2DA0] opacity-10"
+        />
+        <FontAwesomeIcon
+          icon={faGraduationCap}
+          className="absolute bottom-10 right-10 text-6xl text-[#2D2DA0] opacity-10"
+        />
+        <FontAwesomeIcon
+          icon={faShieldHalved}
+          className="absolute top-10 left-1/2 transform -translate-x-1/2 text-6xl text-[#2D2DA0] opacity-10"
+        />
       </div>
 
       {/* Carte d'accueil */}
       <div className="bg-[#E63946] rounded-2xl p-10 w-full max-w-lg text-white shadow-xl z-10">
-        <h1 className="text-4xl font-bold text-center mb-8">FriseServicePublic</h1>
+        <h1 className="text-4xl font-bold text-center mb-8">
+          FriseServicePublic
+        </h1>
         <div className="space-y-6">
           {/* Nombre de joueurs */}
           <div>
@@ -117,11 +134,23 @@ function Accueil() {
 
       {/* Icônes supplémentaires en bas */}
       <div className="absolute bottom-20 flex gap-6">
-        <FontAwesomeIcon icon={faBalanceScale} className="text-3xl text-[#2D2DA0]" />
-        <FontAwesomeIcon icon={faHeartbeat} className="text-3xl text-[#2D2DA0]" />
+        <FontAwesomeIcon
+          icon={faBalanceScale}
+          className="text-3xl text-[#2D2DA0]"
+        />
+        <FontAwesomeIcon
+          icon={faHeartbeat}
+          className="text-3xl text-[#2D2DA0]"
+        />
         <FontAwesomeIcon icon={faHouse} className="text-3xl text-[#2D2DA0]" />
-        <FontAwesomeIcon icon={faGraduationCap} className="text-3xl text-[#2D2DA0]" />
-        <FontAwesomeIcon icon={faShieldHalved} className="text-3xl text-[#2D2DA0]" />
+        <FontAwesomeIcon
+          icon={faGraduationCap}
+          className="text-3xl text-[#2D2DA0]"
+        />
+        <FontAwesomeIcon
+          icon={faShieldHalved}
+          className="text-3xl text-[#2D2DA0]"
+        />
       </div>
     </div>
   );

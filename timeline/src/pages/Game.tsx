@@ -1,8 +1,8 @@
 // src/pages/Game.tsx
-import React, { useState, useEffect, useRef } from 'react';
-import fetchData from './api';
-import { Carte } from './types';
-import { TimelineBoard } from './components/TimelineBoard';
+import { useState, useEffect, useRef } from "react";
+import fetchData from "../api";
+import { Carte } from "../types";
+import { TimelineBoard } from "../components/TimelineBoard";
 
 export default function Game() {
   const [deck, setDeck] = useState<Carte[]>([]);
@@ -25,18 +25,17 @@ export default function Game() {
 
   useEffect(() => {
     if (deck.length > 0 && !hasPlacedCard.current) {
-      placedCards.push(getCurrentCard());
       placeCard(0);
       hasPlacedCard.current = true;
-      }
+    }
   }, [deck]);
 
   //Fonction qui prend un index de carte, et transfert la carte actuelle du deck vers placedCards à l'emplacement de l'index
   const placeCard = (indexTo: number) => {
     const cardToPlace = deck[currentCardIndex];
-    /*const newDeck = [...deck];
+    const newDeck = [...deck];
     newDeck.splice(currentCardIndex, 1);
-    setDeck(newDeck);*/
+    setDeck(newDeck);
 
     const newPlacedCards = [...placedCards];
     if (indexTo >= newPlacedCards.length) {
@@ -45,7 +44,7 @@ export default function Game() {
       newPlacedCards.splice(indexTo, 0, cardToPlace);
     }
     setTempPlaced(newPlacedCards);
-    //setCurrentCardIndex(Math.floor(Math.random() * newDeck.length));
+    setCurrentCardIndex(Math.floor(Math.random() * newDeck.length));
   }
 
   //Fonction pour récupérer la carte en cours
@@ -61,7 +60,7 @@ export default function Game() {
       ) : (
         <>
           <h1 className="text-3xl font-bold mb-8">Jeu TimeLine</h1>
-          <TimelineBoard cards={tempPlaced} onClick={placeCard} />
+          <TimelineBoard cards={tempPlaced} onClick={placeCard} currentCard={getCurrentCard()} />
         </>
       )}
     </div>
