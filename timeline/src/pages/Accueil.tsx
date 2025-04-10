@@ -37,7 +37,7 @@ function Accueil() {
       <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 -rotate-12 text-[140px] font-bold text-[#2D2DA0] opacity-5 select-none pointer-events-none z-0">
         FriseServicePublic
       </div>
-
+    
       {/* Icônes de fond réparties sur toute la surface */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <FontAwesomeIcon icon={faBalanceScale} className="absolute top-10 left-10 text-6xl text-[#2D2DA0] opacity-10" />
