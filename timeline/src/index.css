@@ -1,6 +1,6 @@
 @import "tailwindcss";
 :root {
-  font-family: 'Poppins', system-ui, sans-serif;
+  font-family: "Poppins", system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -9,4 +9,38 @@ body {
   margin: 0;
 }
 
+.limit-lines {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; /* Limite à 3 lignes */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
+.limit-lines2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6; /* Limite à 6 lignes */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tooltip {
+  display: none;
+  position: absolute;
+  top: 80%; /* Centrer verticalement par rapport au texte */
+  left: 100%; /* Positionner à droite de l'élément */
+  transform: translateY(-50%); /* Centrer le tooltip verticalement */
+  background-color: rgba(0, 0, 0, 0.7); /* Fond noir semi-transparent */
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  white-space: normal; /* Permet au texte de se casser en plusieurs lignes */
+  width: max-content; /* S'ajuste à la largeur du texte */
+  max-width: 200px; /* Optionnel : limite la largeur du tooltip si le texte est trop long */
+}
+
+.relative:hover .tooltip {
+  display: block;
+}
