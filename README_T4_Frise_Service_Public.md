@@ -1,8 +1,8 @@
 
 # T4
 
-- **Nom du groupe** : À compléter
-- **Membres du groupe** : À compléter
+- **Nom du groupe** : Timeliners
+- **Membres du groupe** : Samuel Chanal, Nathan Bowman, priscilia Brucker, Clémence Boucher
 - **Liens vers les évaluations T4** :
   - lien 1
   - lien 2
@@ -15,8 +15,6 @@
 - Supprimer les instructions de fork du README.md
 
 ---
-
-# Frise Service Public
 
 ## Présentation du projet
 
