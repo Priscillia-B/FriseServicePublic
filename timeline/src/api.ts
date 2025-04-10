@@ -23,8 +23,5 @@ export default async function fetchData(): Promise<Carte[]> {
 
     const filteredCartes = cartes.filter(carte => carte.titre && carte.date);
 
-    console.log("Filtered Cartes:", filteredCartes);
-    console.log("Cartes:", cartes);
-
     return filteredCartes;
 }
