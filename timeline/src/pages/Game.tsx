@@ -8,6 +8,17 @@ import Modal from "../components/modals/Modal";
 import ExitGameModal from "../components/modals/ExitGameModal";
 import BackCard from "../components/cards/BackCard";
 import VictoryModal from "../components/modals/VictoryModal";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPlay,
+  faUsers,
+  faTrophy,
+  faBalanceScale,
+  faHeartbeat,
+  faHouse,
+  faGraduationCap,
+  faShieldHalved,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function Game() {
   const location = useLocation();
@@ -142,12 +153,24 @@ export default function Game() {
   };
 
   return (
-    <div className="flex flex-col items-center bg-white min-h-screen pt-12 pb-40 relative">
+    <div className="flex flex-col items-center bg-[#E5ECF4] max-h-screen pt-12 pb-40 relative">
+
+      
+      {/* Icônes de fond réparties sur toute la surface */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <FontAwesomeIcon icon={faBalanceScale} className="absolute top-10 left-10 text-6xl text-[#2D2DA0] opacity-10" />
+        <FontAwesomeIcon icon={faHeartbeat} className="absolute top-10 right-10 text-6xl text-[#2D2DA0] opacity-10" />
+        <FontAwesomeIcon icon={faHouse} className="absolute bottom-10 left-10 text-6xl text-[#2D2DA0] opacity-10" />
+        <FontAwesomeIcon icon={faGraduationCap} className="absolute bottom-10 right-10 text-6xl text-[#2D2DA0] opacity-10" />
+        <FontAwesomeIcon icon={faShieldHalved} className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-6xl text-[#2D2DA0] opacity-10" />
+      </div>
+
       <h1 className="text-3xl font-bold mb-8">Jeu TimeLine</h1>
       {loading ? (
         <h1 className="text-3xl font-bold mb-8">Chargement...</h1>
       ) : (
         <>
+          
           <div className="mb-4">
             <p className="text-lg">
               Joueur courant : {currentPlayerIndex + 1}
