@@ -29,7 +29,6 @@ export const TimelineBoard: React.FC<TimelineBoardProps> = ({ cards, onTempClick
         flex
         items-center /* Centrer verticalement le contenu */
         scrollbar-custom
-        shadow-xl
         rounded-lg
         
       "
