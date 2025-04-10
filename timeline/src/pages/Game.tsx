@@ -10,6 +10,7 @@ export default function Game() {
   const [tempIndex, setTempIndex] = useState<number>();
   const [currentCardIndex, setCurrentCardIndex] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(true);
+  //TODO : implémenter les joueurs et les scores
 
   // Temporaire (peut-être)
   const hasPlacedCard = useRef(false);
@@ -43,16 +44,17 @@ export default function Game() {
       return;
     }
 
-    const cardToPlace = deck[currentCardIndex];
+    const cardToPlace = getCurrentCard();
     const newDeck = [...deck];
     newDeck.splice(currentCardIndex, 1);
     setDeck(newDeck);
 
     const newPlacedCards = [...placedCards];
-    if (tempIndex >= newPlacedCards.length) {
+    const insertIndex = newPlacedCards.findIndex(card => card.date > cardToPlace.date);
+    if (insertIndex === -1) {
       newPlacedCards.push(cardToPlace);
     } else {
-      newPlacedCards.splice(tempIndex, 0, cardToPlace);
+      newPlacedCards.splice(insertIndex, 0, cardToPlace);
     }
     setPlacedCards(newPlacedCards);
     setCurrentCardIndex(Math.floor(Math.random() * newDeck.length));
@@ -75,6 +77,7 @@ export default function Game() {
           <TimelineBoard cards={placedCards} onTempClick={handleTempClick} currentCard={getCurrentCard()} tempIndex={tempIndex} />
           <button
             onClick={handlePlaceCard}
+            disabled={tempIndex === undefined}
             className="bg-blue-500 text-white px-4 py-2 rounded mt-4" >Valider</button>
         </>
       )}

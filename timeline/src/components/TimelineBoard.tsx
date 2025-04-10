@@ -1,5 +1,5 @@
 // src/components/TimelineBoard.tsx
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Carte } from '../types';
 import FrontCard from './cards/FrontCard';
 import BackCard from './cards/BackCard';
