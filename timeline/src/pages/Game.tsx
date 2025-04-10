@@ -3,11 +3,14 @@ import { useState, useEffect, useRef } from "react";
 import fetchData from "../api";
 import { Carte } from "../types";
 import { TimelineBoard } from "../components/TimelineBoard";
+import Modal from "../components/modals/Modal";
+import ExitGameModal from "../components/modals/ExitGameModal";
 
 export default function Game() {
   const [deck, setDeck] = useState<Carte[]>([]);
   const [placedCards, setPlacedCards] = useState<Carte[]>([]);
   const [currentCardIndex, setCurrentCardIndex] = useState<number>(0);
+  const [exitOpen, setExitOpen] = useState(false);
 
   // Temporaire (peut-être)
   const hasPlacedCard = useRef(false);
@@ -58,6 +61,19 @@ export default function Game() {
 
       {/* TimelineBoard */}
       <TimelineBoard cards={placedCards} onClick={placeCard} />
+
+      <button
+        className="absolute top-0 left-0 text-white font-semibold bg-red-500 py-1 px-2 rounded m-4 cursor-pointer"
+        onClick={() => setExitOpen(true)}
+      >
+        Quitter la partie
+      </button>
+
+      {exitOpen && (
+        <Modal>
+          <ExitGameModal setExitOpen={setExitOpen} />
+        </Modal>
+      )}
     </div>
   );
 }
