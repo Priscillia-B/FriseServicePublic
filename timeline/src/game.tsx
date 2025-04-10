@@ -22,16 +22,16 @@ export default function Game() {
 
   useEffect(() => {
     if (deck.length > 0 && !hasPlacedCard.current) {
-      placeCard(currentCardIndex, 0);
+      placeCard(0);
       hasPlacedCard.current = true;
       }
   }, [deck]);
 
   //Fonction qui prend deux index de carte, et transfert la carte du premier index du deck vers placedCards à l'emplacement du second index
-  const placeCard = (indexFrom: number, indexTo: number) => {
-    const cardToPlace = deck[indexFrom];
+  const placeCard = (indexTo: number) => {
+    const cardToPlace = deck[currentCardIndex];
     const newDeck = [...deck];
-    newDeck.splice(indexFrom, 1);
+    newDeck.splice(currentCardIndex, 1);
     setDeck(newDeck);
 
     const newPlacedCards = [...placedCards];
@@ -58,7 +58,7 @@ export default function Game() {
       <h1 className="text-3xl font-bold mb-8">Jeu TimeLine</h1>
       
       {/* TimelineBoard */}
-      <TimelineBoard cards={placedCards} />
+      <TimelineBoard cards={placedCards} onClick={placeCard} />
     </div>
   );
 }
