@@ -10,9 +10,6 @@ import BackCard from "../components/cards/BackCard";
 import VictoryModal from "../components/modals/VictoryModal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faPlay,
-  faUsers,
-  faTrophy,
   faBalanceScale,
   faHeartbeat,
   faHouse,
