@@ -165,7 +165,11 @@ export default function Game() {
         <FontAwesomeIcon icon={faShieldHalved} className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-6xl text-[#2D2DA0] opacity-10" />
       </div>
 
-      <h1 className="text-3xl font-bold mb-8">Jeu TimeLine</h1>
+      <h1 className="text-6xl font-extrabold mb-12 flex justify-center space-x-4">
+        <span className="text-[#2D2DA0]">Frise</span>
+        <span className="text-white">Service</span>
+        <span className="text-[#E63946]">Public</span>
+      </h1>
       {loading ? (
         <h1 className="text-3xl font-bold mb-8">Chargement...</h1>
       ) : (
@@ -192,15 +196,15 @@ export default function Game() {
             currentCard={getCurrentCard()}
             tempIndex={tempIndex}
           />
-          <div className = "mt-20">  <BackCard card={getCurrentCard()} /> </div>
-         
+          <div className="mt-20">  <BackCard card={getCurrentCard()} /> </div>
+
           <button
             onClick={handlePlaceCard}
             disabled={tempIndex === undefined}
             className="bg-blue-500 text-white px-4 py-2 rounded mt-4 text-lg transition-transform duration-300 ease-in-out hover:scale-105 cursor-pointer hover:bg-blue-600 shadow-md" >Valider</button>
 
           <button
-            className="absolute top-1 right-5 text-white font-semibold bg-red-500 py-1 px-2 rounded m-4 cursor-pointer text-lg transition-transform duration-300 ease-in-out hover:scale-105 hover:bg-red-600 shadow-md" 
+            className="absolute top-1 right-5 text-white font-semibold bg-red-500 py-1 px-2 rounded m-4 cursor-pointer text-lg transition-transform duration-300 ease-in-out hover:scale-105 hover:bg-red-600 shadow-md"
             onClick={() => setExitOpen(true)}
           >
             Quitter la partie

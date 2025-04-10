@@ -49,7 +49,7 @@ function Accueil() {
 
       {/* Carte d'accueil */}
       <div className="bg-[#E63946] rounded-2xl p-10 w-full max-w-lg text-white shadow-xl z-10">
-        <h1 className="text-4xl font-bold text-center mb-8">
+        <h1 className="text-5xl font-bold text-center mb-8">
           FriseServicePublic
         </h1>
         <div className="space-y-6">
