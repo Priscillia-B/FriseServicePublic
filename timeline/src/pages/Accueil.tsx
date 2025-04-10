@@ -1,6 +1,6 @@
 // src/pages/Accueil.tsx
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; // Nécessaire pour la redirection
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlay,
@@ -19,17 +19,15 @@ function Accueil() {
   const [nbPoints, setNbPoints] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Pour naviguer vers /game
 
   const handleStart = () => {
     if (nbPlayers === null || nbPoints === null) {
       setError("Veuillez remplir tous les champs avant de commencer !");
     } else {
       setError(null);
-      // On passe les infos via state
-      navigate("/game", {
-        state: { nbPlayers, nbPoints },
-      });
+      // Passage des infos via state à la page Game
+      navigate("/game", { state: { nbPlayers, nbPoints } });
     }
   };
 
@@ -40,7 +38,7 @@ function Accueil() {
         FriseServicePublic
       </div>
 
-      {/* Icônes de fond réparties */}
+      {/* Icônes de fond réparties sur toute la surface */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <FontAwesomeIcon icon={faBalanceScale} className="absolute top-10 left-10 text-6xl text-[#2D2DA0] opacity-10" />
         <FontAwesomeIcon icon={faHeartbeat} className="absolute top-10 right-10 text-6xl text-[#2D2DA0] opacity-10" />
@@ -51,7 +49,9 @@ function Accueil() {
 
       {/* Carte d'accueil */}
       <div className="bg-[#E63946] rounded-2xl p-10 w-full max-w-lg text-white shadow-xl z-10">
-        <h1 className="text-4xl font-bold text-center mb-8">FriseServicePublic</h1>
+        <h1 className="text-4xl font-bold text-center mb-8">
+          FriseServicePublic
+        </h1>
         <div className="space-y-6">
           {/* Nombre de joueurs */}
           <div>
@@ -105,7 +105,7 @@ function Accueil() {
           {/* Bouton Démarrer la partie */}
           <button
             onClick={handleStart}
-            className="w-full bg-[#2D2DA0] hover:bg-[#1c1c80] text-white font-semibold py-3 rounded-xl flex items-center justify-center gap-3 mt-6 text-lg transition-transform duration-300 hover:scale-105"
+            className="w-full bg-[#2D2DA0] hover:bg-[#1c1c80] text-white font-semibold py-3 rounded-xl flex items-center justify-center gap-3 mt-6 text-lg cursor-pointer transform transition-transform duration-300 hover:scale-105"
           >
             <FontAwesomeIcon icon={faPlay} />
             Démarrer la partie
