@@ -5,9 +5,10 @@ import FrontCard from '../cards/FrontCard';
 
 interface TimelineBoardProps {
   cards: Carte[];
+  onClick: (indexTo: number) => void;
 }
 
-export const TimelineBoard: React.FC<TimelineBoardProps> = ({ cards }) => {
+export const TimelineBoard: React.FC<TimelineBoardProps> = ({ cards, onClick }) => {
   return (
     <div
       className="
@@ -29,10 +30,27 @@ export const TimelineBoard: React.FC<TimelineBoardProps> = ({ cards }) => {
       "
     >
       <div className="flex space-x-4 whitespace-nowrap">
-        {cards.map((card) => (
-          <FrontCard key={card.id} card={card} />
+        {cards.map((card, i) => ( <>
+            <PlaceButton key={i+1000} to={i} onClick={onClick} />
+            <FrontCard key={card.id} card={card} />
+            </>
         ))}
+        <PlaceButton key={1000} to={cards.length} onClick={onClick} />
       </div>
     </div>
   );
+
+  interface PlaceButtonProps {
+    to: number;
+    onClick: (indexTo: number) => void;
+  }
+
+  function PlaceButton({ to, onClick }: PlaceButtonProps) {
+    return (
+      <button
+        onClick={() => onClick(to)}
+        className="bg-blue-500 text-white px-4 py-2 rounded"
+      > + </button>
+    );
+  }
 };
