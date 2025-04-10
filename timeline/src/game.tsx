@@ -1,24 +1,28 @@
 // src/pages/Game.tsx
 import React, { useState, useEffect } from 'react';
-import fetchData from './api';
-import { Carte } from './types';
 import { TimelineBoard } from './components/TimelineBoard';
+import { Carte } from './types';
+import fetchData from './api'; // Assurez-vous que le chemin est correct
 
 export default function Game() {
   const [cards, setCards] = useState<Carte[]>([]);
 
-  // Exemple de fetch asynchrone (si tu utilises fetchData)
   useEffect(() => {
-    fetchData().then((data) => {
-      setCards(data);
-    });
+    fetchData()
+      .then((data) => {
+        setCards(data);
+      })
+      .catch((error) => {
+        console.error('Erreur lors de la récupération des cartes:', error);
+      });
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-white">
+    // Le padding top déplace le contenu vers le haut et le padding bottom laisse de l'espace en bas
+    <div className="flex flex-col items-center bg-white min-h-screen pt-12 pb-40">
       <h1 className="text-3xl font-bold mb-8">Jeu TimeLine</h1>
       
-      {/* TimelineBoard */}
+      {/* Affichage de toutes les cartes récupérées via fetchData */}
       <TimelineBoard cards={cards} />
     </div>
   );
