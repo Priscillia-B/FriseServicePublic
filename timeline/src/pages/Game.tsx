@@ -1,6 +1,6 @@
 // src/pages/Game.tsx
 import { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import fetchData from "../api";
 import { Carte, Joueur } from "../types";
 import { TimelineBoard } from "../components/TimelineBoard";
@@ -48,8 +48,6 @@ export default function Game() {
         setPlacedCards([firstCard]);
 
         setCurrentCardIndex(Math.floor(Math.random() * data.length));
-        console.log("Current card index:", currentCardIndex);
-        console.log("First card index:", firstCardIndex);
         setLoading(false);
       })
       .catch((err) => {
