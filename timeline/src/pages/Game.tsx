@@ -6,6 +6,7 @@ import { TimelineBoard } from "../components/TimelineBoard";
 import Modal from "../components/modals/Modal";
 import ExitGameModal from "../components/modals/ExitGameModal";
 import BackCard from "../components/cards/BackCard";
+import VictoryModal from "../components/modals/VictoryModal";
 
 export default function Game() {
   const [deck, setDeck] = useState<Carte[]>([]);
@@ -14,6 +15,8 @@ export default function Game() {
   const [currentCardIndex, setCurrentCardIndex] = useState<number>(0);
   const [exitOpen, setExitOpen] = useState(false);
   const [loading, setLoading] = useState<boolean>(true);
+  const [winnerId, setWinnerId] = useState<number>(-1);
+  const [showVictoryModal, setShowVictoryModal] = useState(false);
   //TODO : implémenter les joueurs et les scores
 
   // Temporaire (peut-être)
@@ -53,7 +56,9 @@ export default function Game() {
     setDeck(newDeck);
 
     const newPlacedCards = [...placedCards];
-    const insertIndex = newPlacedCards.findIndex(card => card.date > cardToPlace.date);
+    const insertIndex = newPlacedCards.findIndex(
+      (card) => card.date > cardToPlace.date
+    );
     if (insertIndex === -1) {
       newPlacedCards.push(cardToPlace);
     } else {
@@ -102,6 +107,12 @@ export default function Game() {
       {exitOpen && (
         <Modal>
           <ExitGameModal setExitOpen={setExitOpen} />
+        </Modal>
+      )}
+
+      {showVictoryModal && (
+        <Modal>
+          <VictoryModal winnerId={winnerId} />
         </Modal>
       )}
     </div>
