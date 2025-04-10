@@ -3,8 +3,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import fetchData from './api';
 import { Carte } from './types';
 import { TimelineBoard } from './components/TimelineBoard';
-import { Carte } from './types';
-import fetchData from './api'; // Assurez-vous que le chemin est correct
 
 export default function Game() {
   const [deck, setDeck] = useState<Carte[]>([]);
