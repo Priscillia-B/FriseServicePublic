@@ -192,7 +192,8 @@ export default function Game() {
             currentCard={getCurrentCard()}
             tempIndex={tempIndex}
           />
-          <BackCard card={getCurrentCard()} />
+          <div className = "mt-20">  <BackCard card={getCurrentCard()} /> </div>
+         
           <button
             onClick={handlePlaceCard}
             disabled={tempIndex === undefined}
