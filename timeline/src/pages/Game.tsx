@@ -19,7 +19,7 @@ export default function Game() {
   const [players, setPlayers] = useState<Joueur[]>(() => {
     const arr: Joueur[] = [];
     for (let i = 0; i < nbPlayers; i++) {
-      arr.push({ id: i, score: 0 });
+      arr.push({ id: i, pv: nbPoints });
     }
     return arr;
   });
@@ -29,7 +29,7 @@ export default function Game() {
   const [placedCards, setPlacedCards] = useState<Carte[]>([]);
   const [tempIndex, setTempIndex] = useState<number | undefined>();
   const [loading, setLoading] = useState<boolean>(true);
-  const [winnerId, setWinnerId] = useState<number>(-1);
+  const [winnerId, setWinnerId] = useState<number>(-1); // null si pas encore de gagnant
   const [showVictoryModal, setShowVictoryModal] = useState(false);
   const [exitOpen, setExitOpen] = useState<boolean>(false);
 
@@ -39,7 +39,6 @@ export default function Game() {
         console.log("Data fetched:", data);
         // Choix aléatoire d'un index pour la première carte
         const firstCardIndex = Math.floor(Math.random() * data.length);
-        setCurrentCardIndex(firstCardIndex);
 
         // Placement manuel de la première carte
         const firstCard = data[firstCardIndex];
@@ -48,6 +47,9 @@ export default function Game() {
         setDeck(remainingDeck);
         setPlacedCards([firstCard]);
 
+        setCurrentCardIndex(Math.floor(Math.random() * data.length));
+        console.log("Current card index:", currentCardIndex);
+        console.log("First card index:", firstCardIndex);
         setLoading(false);
       })
       .catch((err) => {
@@ -65,6 +67,30 @@ export default function Game() {
   // Récupère la carte courante (selon l'index courant, comme dans votre code de base)
   const getCurrentCard = () => {
     return deck[currentCardIndex];
+  };
+
+  // Passe au joueur suivant de manière circulaire dont le score actuel n'est pas 0
+  const nextPlayer = () => {
+    setCurrentPlayerIndex((prev) => {
+      let nextIndex = (prev + 1) % nbPlayers;
+      let activePlayers = players.filter((p) => p.pv > 0).length;
+      console.log("Active players:", activePlayers);
+
+      // Si un seul joueur reste actif, il gagne
+      if (activePlayers === 1) {
+        const remainingPlayer = players.find((p) => p.pv > 0);
+        console.log("Remaining player:", remainingPlayer);
+        setWinnerId(remainingPlayer ? remainingPlayer.id : -2); //Si ça fait -2, c'est pas normal
+        setShowVictoryModal(true);
+        return prev;
+      }
+
+      // Trouver le prochain joueur actif
+      while (players[nextIndex].pv <= 0) {
+        nextIndex = (nextIndex + 1) % nbPlayers;
+      }
+      return nextIndex;
+    });
   };
 
   // Logique de placement
@@ -91,37 +117,30 @@ export default function Game() {
     setCurrentCardIndex(Math.floor(Math.random() * newDeck.length));
     setTempIndex(undefined);
 
-    // Mettre à jour le score : si tempIndex correspond à l'index d'insertion correct, incrémenter le score
+    // Mettre à jour les vies : si tempIndex est incorrect, diminuer les vies
     const updatedPlayers = [...players];
-    if (tempIndex === (insertIndex === -1 ? newPlacedCards.length - 1 : insertIndex)) {
-      updatedPlayers[currentPlayerIndex].score++;
+    if (tempIndex !== (insertIndex === -1 ? newPlacedCards.length - 1 : insertIndex)) {
+      updatedPlayers[currentPlayerIndex].pv--;
     }
     setPlayers(updatedPlayers);
 
-    // Vérifier si le joueur courant atteint le score cible
-    if (updatedPlayers[currentPlayerIndex].score >= nbPoints) {
-      setWinnerId(currentPlayerIndex);
-      setShowVictoryModal(true);
-      return;
-    }
-
-    // S'il n'y a plus de cartes dans le deck
+    // Vérifier si toutes les cartes sont épuisées
     if (newDeck.length === 0) {
-      const maxScore = Math.max(...updatedPlayers.map((p) => p.score));
-      const winners = updatedPlayers.filter((p) => p.score === maxScore);
+      const maxScore = Math.max(...updatedPlayers.map((p) => p.pv));
+      const winners = updatedPlayers.filter((p) => p.pv === maxScore);
       if (winners.length === 1) {
         setWinnerId(winners[0].id);
         setShowVictoryModal(true);
       } else {
-        //Possibilité de créer un Modal en cas d'égalité
+        // Possibilité de créer un Modal en cas d'égalité
         setWinnerId(winners[0].id);
         setShowVictoryModal(true);
       }
       return;
     }
 
-    // Passer au joueur suivant (ordre circulaire)
-    setCurrentPlayerIndex((prev) => (prev + 1) % nbPlayers);
+    // Passer au joueur suivant
+    nextPlayer();
   };
 
   return (
@@ -143,7 +162,7 @@ export default function Game() {
                     idx === currentPlayerIndex ? "bg-blue-200" : "bg-gray-200"
                   }`}
                 >
-                  Joueur {p.id + 1} : {p.score} points
+                  Joueur {p.id + 1} : {p.pv} vies
                 </div>
               ))}
             </div>
@@ -179,7 +198,7 @@ export default function Game() {
 
       {showVictoryModal && (
         <Modal>
-          <VictoryModal winnerId={winnerId} />
+          <VictoryModal winnerId={winnerId+1} />
         </Modal>
       )}
     </div>

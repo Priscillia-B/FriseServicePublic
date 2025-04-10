@@ -9,5 +9,5 @@ export type Carte = {
 
 export type Joueur = {
     id: number;
-    score: number;
+    pv: number;
 }
