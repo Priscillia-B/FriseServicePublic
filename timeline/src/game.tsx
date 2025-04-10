@@ -3,6 +3,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import fetchData from './api';
 import { Carte } from './types';
 import { TimelineBoard } from './components/TimelineBoard';
+import { Carte } from './types';
+import fetchData from './api'; // Assurez-vous que le chemin est correct
 
 export default function Game() {
   const [deck, setDeck] = useState<Carte[]>([]);
@@ -53,7 +55,8 @@ export default function Game() {
     
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-white">
+    // Le padding top déplace le contenu vers le haut et le padding bottom laisse de l'espace en bas
+    <div className="flex flex-col items-center bg-white min-h-screen pt-12 pb-40">
       <h1 className="text-3xl font-bold mb-8">Jeu TimeLine</h1>
       
       {/* TimelineBoard */}
