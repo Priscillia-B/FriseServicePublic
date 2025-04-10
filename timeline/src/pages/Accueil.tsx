@@ -1,6 +1,6 @@
 // src/pages/Accueil.tsx
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import de useNavigate
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlay,
@@ -19,14 +19,17 @@ function Accueil() {
   const [nbPoints, setNbPoints] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  const navigate = useNavigate(); // Permet de naviguer vers une autre page
+  const navigate = useNavigate();
 
   const handleStart = () => {
     if (nbPlayers === null || nbPoints === null) {
       setError("Veuillez remplir tous les champs avant de commencer !");
     } else {
       setError(null);
-      navigate("/game"); // Redirige vers la page game
+      // On passe les infos via state
+      navigate("/game", {
+        state: { nbPlayers, nbPoints },
+      });
     }
   };
 
@@ -37,35 +40,18 @@ function Accueil() {
         FriseServicePublic
       </div>
 
-      {/* Icônes de fond réparties sur toute la surface */}
+      {/* Icônes de fond réparties */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        <FontAwesomeIcon
-          icon={faBalanceScale}
-          className="absolute top-10 left-10 text-6xl text-[#2D2DA0] opacity-10"
-        />
-        <FontAwesomeIcon
-          icon={faHeartbeat}
-          className="absolute top-10 right-10 text-6xl text-[#2D2DA0] opacity-10"
-        />
-        <FontAwesomeIcon
-          icon={faHouse}
-          className="absolute bottom-10 left-10 text-6xl text-[#2D2DA0] opacity-10"
-        />
-        <FontAwesomeIcon
-          icon={faGraduationCap}
-          className="absolute bottom-10 right-10 text-6xl text-[#2D2DA0] opacity-10"
-        />
-        <FontAwesomeIcon
-          icon={faShieldHalved}
-          className="absolute top-10 left-1/2 transform -translate-x-1/2 text-6xl text-[#2D2DA0] opacity-10"
-        />
+        <FontAwesomeIcon icon={faBalanceScale} className="absolute top-10 left-10 text-6xl text-[#2D2DA0] opacity-10" />
+        <FontAwesomeIcon icon={faHeartbeat} className="absolute top-10 right-10 text-6xl text-[#2D2DA0] opacity-10" />
+        <FontAwesomeIcon icon={faHouse} className="absolute bottom-10 left-10 text-6xl text-[#2D2DA0] opacity-10" />
+        <FontAwesomeIcon icon={faGraduationCap} className="absolute bottom-10 right-10 text-6xl text-[#2D2DA0] opacity-10" />
+        <FontAwesomeIcon icon={faShieldHalved} className="absolute top-10 left-1/2 transform -translate-x-1/2 text-6xl text-[#2D2DA0] opacity-10" />
       </div>
 
       {/* Carte d'accueil */}
       <div className="bg-[#E63946] rounded-2xl p-10 w-full max-w-lg text-white shadow-xl z-10">
-        <h1 className="text-4xl font-bold text-center mb-8">
-          FriseServicePublic
-        </h1>
+        <h1 className="text-4xl font-bold text-center mb-8">FriseServicePublic</h1>
         <div className="space-y-6">
           {/* Nombre de joueurs */}
           <div>
@@ -74,7 +60,7 @@ function Accueil() {
               <FontAwesomeIcon icon={faUsers} />
             </label>
             <select
-              className="w-full p-3 rounded-md bg-white text-black border-none text-lg focus:outline-none"
+              className="w-full p-3 rounded-md bg-white text-black text-lg focus:outline-none"
               onChange={(e) => setNbPlayers(parseInt(e.target.value))}
               defaultValue=""
             >
@@ -98,7 +84,7 @@ function Accueil() {
             <input
               type="number"
               placeholder="Ex: 10"
-              className="w-full p-3 rounded-md bg-white text-black border-none text-lg focus:outline-none"
+              className="w-full p-3 rounded-md bg-white text-black text-lg focus:outline-none"
               value={nbPoints ?? ""}
               onChange={(e) => {
                 const value = parseInt(e.target.value);
@@ -119,7 +105,7 @@ function Accueil() {
           {/* Bouton Démarrer la partie */}
           <button
             onClick={handleStart}
-            className="w-full bg-[#2D2DA0] hover:bg-[#1c1c80] text-white font-semibold py-3 rounded-xl flex items-center justify-center gap-3 mt-6 text-lg cursor-pointer transform transition-transform duration-300 hover:scale-105"
+            className="w-full bg-[#2D2DA0] hover:bg-[#1c1c80] text-white font-semibold py-3 rounded-xl flex items-center justify-center gap-3 mt-6 text-lg transition-transform duration-300 hover:scale-105"
           >
             <FontAwesomeIcon icon={faPlay} />
             Démarrer la partie
@@ -134,23 +120,11 @@ function Accueil() {
 
       {/* Icônes supplémentaires en bas */}
       <div className="absolute bottom-20 flex gap-6">
-        <FontAwesomeIcon
-          icon={faBalanceScale}
-          className="text-3xl text-[#2D2DA0]"
-        />
-        <FontAwesomeIcon
-          icon={faHeartbeat}
-          className="text-3xl text-[#2D2DA0]"
-        />
+        <FontAwesomeIcon icon={faBalanceScale} className="text-3xl text-[#2D2DA0]" />
+        <FontAwesomeIcon icon={faHeartbeat} className="text-3xl text-[#2D2DA0]" />
         <FontAwesomeIcon icon={faHouse} className="text-3xl text-[#2D2DA0]" />
-        <FontAwesomeIcon
-          icon={faGraduationCap}
-          className="text-3xl text-[#2D2DA0]"
-        />
-        <FontAwesomeIcon
-          icon={faShieldHalved}
-          className="text-3xl text-[#2D2DA0]"
-        />
+        <FontAwesomeIcon icon={faGraduationCap} className="text-3xl text-[#2D2DA0]" />
+        <FontAwesomeIcon icon={faShieldHalved} className="text-3xl text-[#2D2DA0]" />
       </div>
     </div>
   );
