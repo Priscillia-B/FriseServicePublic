@@ -110,14 +110,6 @@ export default function Game() {
         </Modal>
       )}
 
-      {/* Test victoire */}
-      <button
-        onClick={() => setShowModal(true)}
-        className="bg-green-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-green-700 transition"
-      >
-        Victoire
-      </button>
-
       {showModal && (
         <Modal>
           <VictoryModal winnerId={winnerId} />
