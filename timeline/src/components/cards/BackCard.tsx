@@ -10,10 +10,6 @@ export default function BackCard({ card }: { card: Carte }) {
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 my-3 px-4 text-base font-bold text-white break-word limit-lines2 whitespace-normal">
         {card.titre}
       </div>
-
-      <div className="tooltip z-50 hidden absolute left-full top-1/2 transform -translate-y-1/2 ml-2 bg-black text-white text-sm p-2 rounded-md w-max whitespace-normal">
-        {card.titre}
-      </div>
     </div>
   );
 }

@@ -1,7 +1,8 @@
 // src/pages/Game.tsx
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import fetchData from "../api";
-import { Carte } from "../types";
+import { Carte, Joueur } from "../types";
 import { TimelineBoard } from "../components/TimelineBoard";
 import Modal from "../components/modals/Modal";
 import ExitGameModal from "../components/modals/ExitGameModal";
@@ -9,47 +10,69 @@ import BackCard from "../components/cards/BackCard";
 import VictoryModal from "../components/modals/VictoryModal";
 
 export default function Game() {
+  const location = useLocation();
+  // Récupération de nbPlayers et nbPoints depuis Accueil (avec des valeurs par défaut)
+  const { nbPlayers = 2, nbPoints = 5 } =
+    (location.state as { nbPlayers: number; nbPoints: number }) || {};
+
+  // Initialisation des joueurs (score initial = 0)
+  const [players, setPlayers] = useState<Joueur[]>(() => {
+    const arr: Joueur[] = [];
+    for (let i = 0; i < nbPlayers; i++) {
+      arr.push({ id: i, score: 0 });
+    }
+    return arr;
+  });
+
+  const [currentPlayerIndex, setCurrentPlayerIndex] = useState<number>(0);
   const [deck, setDeck] = useState<Carte[]>([]);
   const [placedCards, setPlacedCards] = useState<Carte[]>([]);
-  const [tempIndex, setTempIndex] = useState<number>();
-  const [currentCardIndex, setCurrentCardIndex] = useState<number>(0);
-  const [exitOpen, setExitOpen] = useState(false);
+  const [tempIndex, setTempIndex] = useState<number | undefined>();
   const [loading, setLoading] = useState<boolean>(true);
   const [winnerId, setWinnerId] = useState<number>(-1);
   const [showVictoryModal, setShowVictoryModal] = useState(false);
-  //TODO : implémenter les joueurs et les scores
-
-  // Temporaire (peut-être)
-  const hasPlacedCard = useRef(false);
+  const [exitOpen, setExitOpen] = useState<boolean>(false);
 
   useEffect(() => {
-    setTempIndex(0);
-    fetchData().then((data) => {
-      console.log("Data fetched:", data);
-      setDeck(data);
-      setCurrentCardIndex(Math.floor(Math.random() * data.length));
-      setLoading(false);
-    });
+    fetchData()
+      .then((data) => {
+        console.log("Data fetched:", data);
+        // Choix aléatoire d'un index pour la première carte
+        const firstCardIndex = Math.floor(Math.random() * data.length);
+        setCurrentCardIndex(firstCardIndex);
+
+        // Placement manuel de la première carte
+        const firstCard = data[firstCardIndex];
+        const remainingDeck = [...data];
+        remainingDeck.splice(firstCardIndex, 1);
+        setDeck(remainingDeck);
+        setPlacedCards([firstCard]);
+
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Erreur lors de fetchData :", err);
+        setLoading(false);
+      });
   }, []);
 
-  useEffect(() => {
-    if (deck.length > 0 && !hasPlacedCard.current) {
-      handlePlaceCard();
-      hasPlacedCard.current = true;
-    }
-  }, [deck]);
+  const [currentCardIndex, setCurrentCardIndex] = useState<number>(0);
 
   const handleTempClick = (indexTo: number) => {
     setTempIndex(indexTo);
   };
 
-  //Fonction qui prend un index de carte, et transfert la carte actuelle du deck vers placedCards à l'emplacement de l'index
+  // Récupère la carte courante (selon l'index courant, comme dans votre code de base)
+  const getCurrentCard = () => {
+    return deck[currentCardIndex];
+  };
+
+  // Logique de placement
   const handlePlaceCard = () => {
     if (tempIndex === undefined) {
       console.error("Temp index is undefined");
       return;
     }
-
     const cardToPlace = getCurrentCard();
     const newDeck = [...deck];
     newDeck.splice(currentCardIndex, 1);
@@ -67,21 +90,65 @@ export default function Game() {
     setPlacedCards(newPlacedCards);
     setCurrentCardIndex(Math.floor(Math.random() * newDeck.length));
     setTempIndex(undefined);
-  };
 
-  //Fonction pour récupérer la carte en cours
-  const getCurrentCard = () => {
-    return deck[currentCardIndex];
+    // Mettre à jour le score : si tempIndex correspond à l'index d'insertion correct, incrémenter le score
+    const updatedPlayers = [...players];
+    if (tempIndex === (insertIndex === -1 ? newPlacedCards.length - 1 : insertIndex)) {
+      updatedPlayers[currentPlayerIndex].score++;
+    }
+    setPlayers(updatedPlayers);
+
+    // Vérifier si le joueur courant atteint le score cible
+    if (updatedPlayers[currentPlayerIndex].score >= nbPoints) {
+      setWinnerId(currentPlayerIndex);
+      setShowVictoryModal(true);
+      return;
+    }
+
+    // S'il n'y a plus de cartes dans le deck
+    if (newDeck.length === 0) {
+      const maxScore = Math.max(...updatedPlayers.map((p) => p.score));
+      const winners = updatedPlayers.filter((p) => p.score === maxScore);
+      if (winners.length === 1) {
+        setWinnerId(winners[0].id);
+        setShowVictoryModal(true);
+      } else {
+        //Possibilité de créer un Modal en cas d'égalité
+        setWinnerId(winners[0].id);
+        setShowVictoryModal(true);
+      }
+      return;
+    }
+
+    // Passer au joueur suivant (ordre circulaire)
+    setCurrentPlayerIndex((prev) => (prev + 1) % nbPlayers);
   };
 
   return (
-    <div className="flex flex-col items-center bg-white min-h-screen pt-12 pb-40">
+    <div className="flex flex-col items-center bg-white min-h-screen pt-12 pb-40 relative">
       <h1 className="text-3xl font-bold mb-8">Jeu TimeLine</h1>
       {loading ? (
         <h1 className="text-3xl font-bold mb-8">Chargement...</h1>
       ) : (
         <>
-          <h1 className="text-3xl font-bold mb-8">Jeu TimeLine</h1>
+          <div className="mb-4">
+            <p className="text-lg">
+              Joueur courant : {currentPlayerIndex + 1}
+            </p>
+            <div className="flex gap-2 mt-2">
+              {players.map((p, idx) => (
+                <div
+                  key={p.id}
+                  className={`px-4 py-2 rounded ${
+                    idx === currentPlayerIndex ? "bg-blue-200" : "bg-gray-200"
+                  }`}
+                >
+                  Joueur {p.id + 1} : {p.score} points
+                </div>
+              ))}
+            </div>
+          </div>
+
           <TimelineBoard
             cards={placedCards}
             onTempClick={handleTempClick}
