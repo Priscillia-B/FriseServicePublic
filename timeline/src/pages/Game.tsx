@@ -5,6 +5,7 @@ import { Carte } from "../types";
 import { TimelineBoard } from "../components/TimelineBoard";
 import Modal from "../components/modals/Modal";
 import ExitGameModal from "../components/modals/ExitGameModal";
+import VictoryModal from "../components/modals/VictoryModal";
 
 export default function Game() {
   const [deck, setDeck] = useState<Carte[]>([]);
@@ -13,6 +14,8 @@ export default function Game() {
   const [currentCardIndex, setCurrentCardIndex] = useState<number>(0);
   const [exitOpen, setExitOpen] = useState(false);
   const [loading, setLoading] = useState<boolean>(true);
+  const [winnerId, setWinnerId] = useState<number>(-1);
+  const [showModal, setShowModal] = useState(false);
   //TODO : implémenter les joueurs et les scores
 
   // Temporaire (peut-être)
@@ -52,7 +55,9 @@ export default function Game() {
     setDeck(newDeck);
 
     const newPlacedCards = [...placedCards];
-    const insertIndex = newPlacedCards.findIndex(card => card.date > cardToPlace.date);
+    const insertIndex = newPlacedCards.findIndex(
+      (card) => card.date > cardToPlace.date
+    );
     if (insertIndex === -1) {
       newPlacedCards.push(cardToPlace);
     } else {
@@ -85,7 +90,10 @@ export default function Game() {
           <button
             onClick={handlePlaceCard}
             disabled={tempIndex === undefined}
-            className="bg-blue-500 text-white px-4 py-2 rounded mt-4" >Valider</button>
+            className="bg-blue-500 text-white px-4 py-2 rounded mt-4"
+          >
+            Valider
+          </button>
         </>
       )}
 
@@ -99,6 +107,20 @@ export default function Game() {
       {exitOpen && (
         <Modal>
           <ExitGameModal setExitOpen={setExitOpen} />
+        </Modal>
+      )}
+
+      {/* Test victoire */}
+      <button
+        onClick={() => setShowModal(true)}
+        className="bg-green-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-green-700 transition"
+      >
+        Victoire
+      </button>
+
+      {showModal && (
+        <Modal>
+          <VictoryModal winnerId={winnerId} />
         </Modal>
       )}
     </div>
