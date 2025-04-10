@@ -5,6 +5,7 @@ import { Carte } from "../types";
 import { TimelineBoard } from "../components/TimelineBoard";
 import Modal from "../components/modals/Modal";
 import ExitGameModal from "../components/modals/ExitGameModal";
+import BackCard from "../components/cards/BackCard";
 
 export default function Game() {
   const [deck, setDeck] = useState<Carte[]>([]);
@@ -82,19 +83,21 @@ export default function Game() {
             currentCard={getCurrentCard()}
             tempIndex={tempIndex}
           />
+          <BackCard card={getCurrentCard()} />
           <button
             onClick={handlePlaceCard}
             disabled={tempIndex === undefined}
             className="bg-blue-500 text-white px-4 py-2 rounded mt-4" >Valider</button>
+        
+
+          <button
+            className="absolute top-0 left-0 text-white font-semibold bg-red-500 py-1 px-2 rounded m-4 cursor-pointer"
+            onClick={() => setExitOpen(true)}
+          >
+            Quitter la partie
+          </button>
         </>
       )}
-
-      <button
-        className="absolute top-0 left-0 text-white font-semibold bg-red-500 py-1 px-2 rounded m-4 cursor-pointer"
-        onClick={() => setExitOpen(true)}
-      >
-        Quitter la partie
-      </button>
 
       {exitOpen && (
         <Modal>
