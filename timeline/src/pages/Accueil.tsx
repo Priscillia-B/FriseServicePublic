@@ -59,20 +59,19 @@ function Accueil() {
               Nombre de joueurs
               <FontAwesomeIcon icon={faUsers} />
             </label>
-            <select
+            <input
+              type="number"
+              placeholder="Ex: 2"
               className="w-full p-3 rounded-md bg-white text-black text-lg focus:outline-none"
-              onChange={(e) => setNbPlayers(parseInt(e.target.value))}
-              defaultValue=""
-            >
-              <option value="" disabled>
-                Choisir...
-              </option>
-              {[2, 3, 4, 5, 6].map((n) => (
-                <option key={n} value={n}>
-                  {n} joueur{n > 1 ? "s" : ""}
-                </option>
-              ))}
-            </select>
+              value={nbPlayers ?? ""}
+              onChange={(e) => {
+                const value = parseInt(e.target.value);
+                if (value >= 2 || isNaN(value)) {
+                  setNbPlayers(value);
+                }
+              }}
+              min="2"
+            />
           </div>
 
           {/* Nombre de points */}
