@@ -1,17 +1,17 @@
 // src/components/TimelineBoard.tsx
-import React from "react";
-import { Carte } from "../types";
-import FrontCard from "./cards/FrontCard";
+import React, { useEffect } from 'react';
+import { Carte } from '../types';
+import FrontCard from './cards/FrontCard';
+import BackCard from './cards/BackCard';
 
 interface TimelineBoardProps {
   cards: Carte[];
-  onClick: (indexTo: number) => void;
+  onTempClick: (indexTo: number) => void;
+  currentCard: Carte;
+  tempIndex?: number;
 }
 
-export const TimelineBoard: React.FC<TimelineBoardProps> = ({
-  cards,
-  onClick,
-}) => {
+export const TimelineBoard: React.FC<TimelineBoardProps> = ({ cards, onTempClick, currentCard, tempIndex }) => {
   return (
     <div
       className="
@@ -33,13 +33,18 @@ export const TimelineBoard: React.FC<TimelineBoardProps> = ({
       "
     >
       <div className="flex space-x-4 whitespace-nowrap">
-        {cards.map((card, i) => (
-          <>
-            <PlaceButton key={i + 1000} to={i} onClick={onClick} />
+        {cards.map((card, i) => ( <>
+            <PlaceButton key={i+1000} to={i} onClick={onTempClick} />
+            {tempIndex !== undefined && tempIndex === i && (
+              <BackCard key={i+500} card={currentCard} />
+            )}
             <FrontCard key={card.id} card={card} />
           </>
         ))}
-        <PlaceButton key={1000} to={cards.length} onClick={onClick} />
+        {tempIndex !== undefined && tempIndex === cards.length && (
+          <BackCard key="tempCard-end" card={currentCard} />
+        )}
+        <PlaceButton key={999} to={cards.length} onClick={onTempClick} />
       </div>
     </div>
   );
