@@ -40,11 +40,26 @@ function Accueil() {
 
       {/* Icônes de fond réparties sur toute la surface */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        <FontAwesomeIcon icon={faBalanceScale} className="absolute top-10 left-10 text-6xl text-[#2D2DA0] opacity-10" />
-        <FontAwesomeIcon icon={faHeartbeat} className="absolute top-10 right-10 text-6xl text-[#2D2DA0] opacity-10" />
-        <FontAwesomeIcon icon={faHouse} className="absolute bottom-10 left-10 text-6xl text-[#2D2DA0] opacity-10" />
-        <FontAwesomeIcon icon={faGraduationCap} className="absolute bottom-10 right-10 text-6xl text-[#2D2DA0] opacity-10" />
-        <FontAwesomeIcon icon={faShieldHalved} className="absolute top-10 left-1/2 transform -translate-x-1/2 text-6xl text-[#2D2DA0] opacity-10" />
+        <FontAwesomeIcon
+          icon={faBalanceScale}
+          className="absolute top-10 left-10 text-6xl text-[#2D2DA0] opacity-10"
+        />
+        <FontAwesomeIcon
+          icon={faHeartbeat}
+          className="absolute top-10 right-10 text-6xl text-[#2D2DA0] opacity-10"
+        />
+        <FontAwesomeIcon
+          icon={faHouse}
+          className="absolute bottom-10 left-10 text-6xl text-[#2D2DA0] opacity-10"
+        />
+        <FontAwesomeIcon
+          icon={faGraduationCap}
+          className="absolute bottom-10 right-10 text-6xl text-[#2D2DA0] opacity-10"
+        />
+        <FontAwesomeIcon
+          icon={faShieldHalved}
+          className="absolute top-10 left-1/2 transform -translate-x-1/2 text-6xl text-[#2D2DA0] opacity-10"
+        />
       </div>
 
       {/* Carte d'accueil */}
@@ -55,7 +70,7 @@ function Accueil() {
         <div className="space-y-6">
           {/* Nombre de joueurs */}
           <div>
-            <label className="block text-lg font-medium mb-2 flex items-center gap-2">
+            <label className="text-lg font-medium mb-2 flex items-center gap-2">
               Nombre de joueurs
               <FontAwesomeIcon icon={faUsers} />
             </label>
@@ -119,11 +134,23 @@ function Accueil() {
 
       {/* Icônes supplémentaires en bas */}
       <div className="absolute bottom-20 flex gap-6">
-        <FontAwesomeIcon icon={faBalanceScale} className="text-3xl text-[#2D2DA0]" />
-        <FontAwesomeIcon icon={faHeartbeat} className="text-3xl text-[#2D2DA0]" />
+        <FontAwesomeIcon
+          icon={faBalanceScale}
+          className="text-3xl text-[#2D2DA0]"
+        />
+        <FontAwesomeIcon
+          icon={faHeartbeat}
+          className="text-3xl text-[#2D2DA0]"
+        />
         <FontAwesomeIcon icon={faHouse} className="text-3xl text-[#2D2DA0]" />
-        <FontAwesomeIcon icon={faGraduationCap} className="text-3xl text-[#2D2DA0]" />
-        <FontAwesomeIcon icon={faShieldHalved} className="text-3xl text-[#2D2DA0]" />
+        <FontAwesomeIcon
+          icon={faGraduationCap}
+          className="text-3xl text-[#2D2DA0]"
+        />
+        <FontAwesomeIcon
+          icon={faShieldHalved}
+          className="text-3xl text-[#2D2DA0]"
+        />
       </div>
     </div>
   );

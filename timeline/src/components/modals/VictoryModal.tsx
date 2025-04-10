@@ -1,9 +1,20 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function VictoryModal({ winnerId }: { winnerId: number }) {
   const navigate = useNavigate();
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    // Lance l'effet après le montage
+    setTimeout(() => setVisible(true), 10);
+  }, []);
+
   return (
-    <div className="bg-[#E5ECF4] h-2/5 w-2/5 rounded-2xl shadow-xl p-6 text-center flex items-center justify-center">
+    <div
+      className={`bg-[#E5ECF4] h-2/5 w-2/5 rounded-2xl shadow-xl p-6 text-center flex items-center justify-center transform transition-opacity duration-500 ease-out
+        ${visible ? "opacity-100" : "opacity-0"}`}
+    >
       <div>
         <h2 className="text-5xl font-semibold text-[#2D2DA0] mb-4">
           Victoire !

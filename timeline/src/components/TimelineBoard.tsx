@@ -3,6 +3,8 @@ import React from 'react';
 import { Carte } from '../types';
 import FrontCard from './cards/FrontCard';
 import BackCard from './cards/BackCard';
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface TimelineBoardProps {
   cards: Carte[];
@@ -13,33 +15,32 @@ interface TimelineBoardProps {
 
 export const TimelineBoard: React.FC<TimelineBoardProps> = ({ cards, onTempClick, currentCard, tempIndex }) => {
   return (
-    <div
+      <div
       className="
-        /* Largeur à ~90% de l'écran, mais limitée à 1200px de large */
-        w-[100%]
+        w-full
         max-w-[1800px]
-        /* Hauteur fixe, par exemple 22rem (~352px) si tu veux */
-        h-[22rem]
-        mx-auto           /* centre le conteneur */
-        overflow-x-auto   /* scroll horizontal */
-        overflow-y-hidden /* pas de scroll vertical */
-        bg-gray-200
-        rounded
-        border
-        border-gray-400
+        min-h-[10rem] /* Réduit la hauteur du composant */
+        h-auto /* Hauteur auto pour que ça s'adapte à son contenu */
+        mx-auto
+        overflow-x-auto
+        overflow-y-hidden
+        bg-[#cfd8e8]
         p-4
         flex
-        items-start
+        items-center /* Centrer verticalement le contenu */
+        scrollbar-custom
+        rounded-lg
+        
       "
     >
-      <div className="flex space-x-4 whitespace-nowrap">
-        {cards.map((card, i) => ( <>
-            <PlaceButton key={i+1000} to={i} onClick={onTempClick} />
-            {tempIndex !== undefined && tempIndex === i && (
-              <BackCard key={i+500} card={currentCard} />
-            )}
-            <FrontCard key={card.id} card={card} />
-          </>
+      <div className="flex space-x-4 whitespace-nowrap items-center">
+        {cards.map((card, i) => (<>
+          <PlaceButton key={i + 1000} to={i} onClick={onTempClick} />
+          {tempIndex !== undefined && tempIndex === i && (
+            <BackCard key={i + 500} card={currentCard} />
+          )}
+          <FrontCard key={card.id} card={card} />
+        </>
         ))}
         {tempIndex !== undefined && tempIndex === cards.length && (
           <BackCard key="tempCard-end" card={currentCard} />
@@ -58,11 +59,12 @@ export const TimelineBoard: React.FC<TimelineBoardProps> = ({ cards, onTempClick
     return (
       <button
         onClick={() => onClick(to)}
-        className="bg-blue-500 text-white px-4 py-2 rounded"
+        className="bg-blue-500 text-white p-3 rounded-full flex items-center justify-center transition-transform duration-300 ease-in-out hover:scale-110 hover:bg-blue-400 cursor-pointer"
+        style={{ width: '40px', height: '40px' }} /* Taille réduite du bouton */
       >
-        {" "}
-        +{" "}
+        <FontAwesomeIcon icon={faPlus} className="text-white text-lg" />
       </button>
     );
   }
 };
+

@@ -44,3 +44,24 @@ body {
 .relative:hover .tooltip {
   display: block;
 }
+
+/* scrollbar-custom */
+.scrollbar-custom::-webkit-scrollbar {
+  height: 11px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: #e0e7ff; /* couleur de fond */
+  border-radius: 100px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background-color: #3b82f6; /* couleur du curseur */
+  border-radius: 100px;
+  border: 2px solid #e0e7ff;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb:hover {
+  background-color: #2563eb; /* couleur au hover */
+  cursor: pointer;
+}
