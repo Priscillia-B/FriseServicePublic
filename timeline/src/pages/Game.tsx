@@ -15,7 +15,7 @@ export default function Game() {
   const [exitOpen, setExitOpen] = useState(false);
   const [loading, setLoading] = useState<boolean>(true);
   const [winnerId, setWinnerId] = useState<number>(-1);
-  const [showModal, setShowModal] = useState(false);
+  const [showVictoryModal, setShowVictoryModal] = useState(false);
   //TODO : implémenter les joueurs et les scores
 
   // Temporaire (peut-être)
@@ -110,7 +110,7 @@ export default function Game() {
         </Modal>
       )}
 
-      {showModal && (
+      {showVictoryModal && (
         <Modal>
           <VictoryModal winnerId={winnerId} />
         </Modal>
