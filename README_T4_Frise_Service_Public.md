@@ -1,20 +1,15 @@
-
 # T4
 
-- **Nom du groupe** : Timeliners
-- **Membres du groupe** : Samuel Chanal, Nathan Bowman, priscilia Brucker, Clémence Boucher
+- **Nom du groupe** : Undefined
+- **Membres du groupe** : Samuel Chanal, Nathan Bowman, Priscillia Brucker, Clémence Boucher
 - **Liens vers les évaluations T4** :
-  - lien 1
-  - lien 2
-
-## Instructions de fork
-
-- Forker ce dépôt
-- Le nommer du code complet du groupe t4
-- Ajouter le lien dans le doc des groupes
-- Supprimer les instructions de fork du README.md
-
----
+  - [Abdullah Nezami](evaluations-T2/evaluation-Abdullah_Nezami.md)
+  - [Emre Sen](evaluations-T2/evaluation-Emre_Sen.md)
+  - [Jules Wolff-Walk](evaluations-T2/evaluation-Jules_Wolff-Walk.md)
+  - [Lohan Marchand](evaluations-T2/evaluation-Lohan_Marchand.md)
+  - [Maoni Waldmann](evaluations-T2/evaluation-Maoni_Waldmann.md)
+  - [Patrik Skâla](evaluations-T2/evaluation-Patrik_Skâla.md)
+  - [Valentin Petit](evaluations-T2/evaluation-Valentin_Petit.md)
 
 ## Présentation du projet
 
@@ -26,11 +21,14 @@ _(À insérer)_
 
 ## Procédures d'installation et d'exécution
 
+- Jouer directement : https://priscillia-b.github.io/FriseServicePublic/
+
+Ou
+
 - Cloner le dépôt
+- Se placer dans [timeline/](timeline/)
 - Lancer l’application avec `npm install && npm run dev`
 - Accès à l'application via navigateur : `http://localhost:5173` (ou autre selon config)
-
----
 
 ## Cahier des charges
 
@@ -53,8 +51,6 @@ _(À insérer)_
 
 - [CSV source](https://docs.google.com/spreadsheets/d/e/2PACX-1vQlzxMUajqLjmCZ_I-NAie0g-ZxTsJqjOnj6R-w139EnpG-XY3DTJ4Hg5iTtzgnfQmSxJnhu0Tl502b/pub?gid=1517720865&single=true&output=csv)
 
----
-
 ## Description des fonctionnalités
 
 ### Simulation
@@ -62,6 +58,7 @@ _(À insérer)_
 - Début de partie avec une carte initiale sur la frise
 - Tirage d'une carte à placer dans l’ordre chronologique
 - Vérification de la validité du placement :
+
   - Si bon : le joueur marque un point
   - Si faux : la carte est replacée correctement, pas de point
 
@@ -75,6 +72,7 @@ _(À insérer)_
 - Bouton Valider pour confirmer le choix
 - Scoreboard temps réel
 - Paramètres de partie (nb de joueurs, score à atteindre)
+- Bouton pour quiter la partie en cours
 
 ### Actions du joueur
 
@@ -95,6 +93,7 @@ _(À insérer)_
 
 - Application web responsive
 - Lecture des données depuis un fichier CSV distant
+
 ---
 
 ### Fonctionnalités et scénarios avancés
