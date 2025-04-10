@@ -28,6 +28,10 @@ export const TimelineBoard: React.FC<TimelineBoardProps> = ({ cards, onTempClick
         p-4
         flex
         items-center /* Centrer verticalement le contenu */
+        scrollbar-custom
+        shadow-xl
+        rounded-lg
+        
       "
     >
       <div className="flex space-x-4 whitespace-nowrap items-center">

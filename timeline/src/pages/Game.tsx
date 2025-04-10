@@ -171,7 +171,7 @@ export default function Game() {
       ) : (
         <>
 
-          <div className="mb-12 w-full max-h-30 overflow-y-auto flex flex-col items-center">
+          <div className="mb-20  w-full max-h-30 overflow-y-auto flex flex-col items-center scrollbar-custom">
             <p className="text-lg">Joueur courant : {currentPlayerIndex + 1}</p>
             <div className="flex gap-2 mt-2 flex-wrap justify-center">
               {players.map((p, idx) => (
@@ -197,11 +197,10 @@ export default function Game() {
           <button
             onClick={handlePlaceCard}
             disabled={tempIndex === undefined}
-            className="bg-blue-500 text-white px-4 py-2 rounded mt-4" >Valider</button>
-
+            className="bg-blue-500 text-white px-4 py-2 rounded mt-4 text-lg transition-transform duration-300 ease-in-out hover:scale-105 cursor-pointer hover:bg-blue-600 shadow-md" >Valider</button>
 
           <button
-            className="absolute top-0 left-0 text-white font-semibold bg-red-500 py-1 px-2 rounded m-4 cursor-pointer"
+            className="absolute top-1 right-5 text-white font-semibold bg-red-500 py-1 px-2 rounded m-4 cursor-pointer text-lg transition-transform duration-300 ease-in-out hover:scale-105 hover:bg-red-600 shadow-md" 
             onClick={() => setExitOpen(true)}
           >
             Quitter la partie
