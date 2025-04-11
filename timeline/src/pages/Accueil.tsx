@@ -83,7 +83,9 @@ function Accueil() {
               value={nbPlayers ?? ""}
               onChange={(e) => {
                 const value = parseInt(e.target.value);
-                if (value >= 1 || isNaN(value)) {
+                if (isNaN(value) || e.target.value === "") {
+                  setNbPlayers(null);
+                } else if (value >= 1) {
                   setNbPlayers(value);
                 }
               }}
@@ -104,7 +106,9 @@ function Accueil() {
               value={nbPoints ?? ""}
               onChange={(e) => {
                 const value = parseInt(e.target.value);
-                if (value >= 1 || isNaN(value)) {
+                if (isNaN(value) || e.target.value === "") {
+                  setNbPoints(null);
+                } else if (value >= 1) {
                   setNbPoints(value);
                 }
               }}
