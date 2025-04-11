@@ -26,7 +26,7 @@ export default function FrontCard({ card }: { card: Carte }) {
       </p>
 
       <button
-        className="group flex items-center bg-[#2D2DA0] text-white font-semibold rounded-full overflow-hidden transition-all duration-300 h-8 w-9 hover:w-40 px-2 mb-2"
+        className="mt-auto group flex items-center bg-[#2D2DA0] text-white font-semibold rounded-full overflow-hidden transition-all duration-300 h-8 w-9 hover:w-40 px-2 mb-2"
         onClick={() => setShowModal(true)}
       >
         <FontAwesomeIcon icon={faCircleInfo} className="text-lg mr-3" />
