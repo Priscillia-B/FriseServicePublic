@@ -63,10 +63,10 @@ Ou
 - Tirage d'une carte à placer dans l’ordre chronologique
 - Vérification de la validité du placement :
 
-  - Si bon : le joueur marque un point
-  - Si faux : la carte est replacée correctement, pas de point
+  - Si bon : ça passe au prochain joueur sans perte de point de vie.
+  - Si faux : la carte est replacée correctement, perte d'un point de vie.
 
-- Fin de partie si score atteint ou toutes les cartes jouées
+- Fin de partie si les points de vies de tout les joueurs sauf 1 atteint 0 ou toutes les cartes jouées
 
 ### Interface
 
