@@ -2,7 +2,7 @@ import { Carte } from "../../types";
 
 export default function BackCard({ card }: { card: Carte }) {
   return (
-    <div className="relative bg-[#E63946] rounded-2xl shadow-lg text-black flex flex-col justify-start gap-2 text-sm w-48 h-56 text-center group">
+    <div className="relative bg-[#E63946] rounded-2xl shadow-lg text-black flex flex-col justify-start gap-2 text-sm w-52 h-60 text-center group">
       <div className="bg-[#2D2DA0] font-semibold rounded-t-2xl py-2 text-white w-full absolute top-0 border-b border-[#E5ECF4] truncate">
         {card.thematique}
       </div>

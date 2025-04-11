@@ -9,12 +9,16 @@ import ExitGameModal from "../components/modals/ExitGameModal";
 import BackCard from "../components/cards/BackCard";
 import VictoryModal from "../components/modals/VictoryModal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+library.add(faSpinner);
+
 import {
   faBalanceScale,
   faHeartbeat,
   faHouse,
   faGraduationCap,
   faShieldHalved,
+  faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function Game() {
@@ -178,24 +182,30 @@ export default function Game() {
         />
       </div>
 
-      <h1 className="text-6xl font-extrabold mb-12 flex justify-center space-x-4">
+      <h1 className="text-5xl font-extrabold mb-12 flex justify-center space-x-4">
         <span className="text-[#2D2DA0]">Frise</span>
         <span className="text-white">Service</span>
         <span className="text-[#E63946]">Public</span>
       </h1>
       {loading ? (
-        <h1 className="text-3xl font-bold mb-8">Chargement...</h1>
+        <div className="flex flex-col items-center justify-center h-full w-full z-10">
+          <p className="text-3xl text-gray-700 font-semibold mb-10">Chargement...</p>
+          <FontAwesomeIcon
+            icon="spinner"
+            spin
+            className="text-6xl text-gray-700 mb-4"
+          />
+        </div>
       ) : (
         <>
-          <div className="mb-20  w-full max-h-30 overflow-y-auto flex flex-col items-center scrollbar-custom">
+          <div className="mb-10  w-full max-h-30 overflow-y-auto flex flex-col items-center scrollbar-custom">
             <p className="text-lg">Joueur courant : {currentPlayerIndex + 1}</p>
             <div className="flex gap-2 mt-2 flex-wrap justify-center">
               {players.map((p, idx) => (
                 <div
                   key={p.id}
-                  className={`min-w-[140px] px-4 py-2 rounded text-sm text-center whitespace-nowrap ${
-                    idx === currentPlayerIndex ? "bg-blue-200" : "bg-gray-200"
-                  }`}
+                  className={`min-w-[140px] px-4 py-2 rounded text-sm text-center whitespace-nowrap ${idx === currentPlayerIndex ? "bg-blue-200" : "bg-gray-200"
+                    }`}
                 >
                   Joueur {p.id + 1} : {p.pv} vies
                 </div>
@@ -209,7 +219,7 @@ export default function Game() {
             currentCard={getCurrentCard()}
             tempIndex={tempIndex}
           />
-          <div className="mt-10">
+          <div className="mt-5">
             {" "}
             <BackCard card={getCurrentCard()} />{" "}
           </div>
