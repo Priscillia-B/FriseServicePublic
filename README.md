@@ -1,62 +1,107 @@
 # T4
 
-- Nom du groupe : 
-- Membres du groupe : 
-- Liens vers les évaluations T4 :
-  - lien 1
-  - lien 2
-  - ...
-
-
-## Instructions de fork : 
-
-- forker ce dépôt
-- le nommer du code complet du groupe t4
-- ajouter le lien dans le doc des groupes
-- supprimer les instructions de fork du README.md
-
+- **Nom du groupe** : Undefined
+- **Membres du groupe** : Samuel Chanal, Nathan Bowman, Priscillia Brucker, Clémence Boucher
+- **Liens vers les évaluations T4** :
+  - [Abdullah Nezami](evaluations-T2/evaluation-Abdullah_Nezami.md)
+  - [Emre Sen](evaluations-T2/evaluation-Emre_Sen.md)
+  - [Jules Wolff-Walk](evaluations-T2/evaluation-Jules_Wolff-Walk.md)
+  - [Lohan Marchand](evaluations-T2/evaluation-Lohan_Marchand.md)
+  - [Maoni Waldmann](evaluations-T2/evaluation-Maoni_Waldmann.md)
+  - [Patrik Skâla](evaluations-T2/evaluation-Patrik_Skâla.md)
+  - [Valentin Petit](evaluations-T2/evaluation-Valentin_Petit.md)
 
 ## Présentation du projet
 
-Présentation globale en une phrase.
+Frise Service Public est une application web ludique et pédagogique dans laquelle les joueurs construisent une frise chronologique à partir d’événements liés à l’histoire des services publics en France.
 
-### Captures d'écran
+## Captures d'écran
 
-### Procédures d'installation et d'exécution
+_(À insérer)_
+
+## Procédures d'installation et d'exécution
+
+- Jouer directement : https://priscillia-b.github.io/FriseServicePublic/
+
+Ou
+
+(**Prérequis** : avoir npm sur sa machine)
+
+- Cloner le dépôt
+- Se placer dans [timeline/](timeline/)
+- Lancer l’application avec `npm install && npm run dev`
+- Accès à l'application via navigateur : `http://localhost:5173` (ou autre selon config)
 
 ## Cahier des charges
 
-Pour un exemple de ce qui est attenu, voir https://gitlab.unistra.fr/T234/t4-exemple
-
 ### Objectifs pédagogiques
 
-Identifier 1 à 3 objectifs, avec un titre et une explication d'une phrase.
+- **Connaître les grands moments du service public**  
+  Découvrir l’évolution des institutions et services publics dans l’histoire de France.
+- **Comprendre la temporalité historique**  
+  Placer correctement un événement dans une chronologie.
+- **Identifier les acteurs publics**  
+  Associer chaque événement à un domaine ou un acteur du service public.
 
-#### Objectifs pédagogiques avancés 
+#### Objectifs pédagogiques avancés
 
-Pareil, mais qui nécessite plus de developpement.
+- Relier un événement à un contexte historique plus large.
+- Savoir expliquer un placement de carte.
+- Jouer en coopération ou en opposition autour d'une culture historique.
 
 #### Références
 
-### Description des fonctionnalités
+- [CSV source](https://docs.google.com/spreadsheets/d/e/2PACX-1vQlzxMUajqLjmCZ_I-NAie0g-ZxTsJqjOnj6R-w139EnpG-XY3DTJ4Hg5iTtzgnfQmSxJnhu0Tl502b/pub?gid=1517720865&single=true&output=csv)
 
-Les sous-sections suivantes sont données à titre indicatif et peuvent être changées.
+## Description des fonctionnalités
 
-#### Simulation
+### Simulation
 
-#### Interface
+- Début de partie avec une carte initiale sur la frise
+- Tirage d'une carte à placer dans l’ordre chronologique
+- Vérification de la validité du placement :
 
-#### Actions du joueur
+  - Si bon : le joueur marque un point
+  - Si faux : la carte est replacée correctement, pas de point
+
+- Fin de partie si score atteint ou toutes les cartes jouées
+
+### Interface
+
+- Frise centrale affichant les cartes placées
+- Carte à jouer visible en bas de l’écran
+- Boutons de placement (« + ») entre les cartes
+- Bouton Valider pour confirmer le choix
+- Scoreboard temps réel
+- Paramètres de partie (nb de joueurs, score à atteindre)
+- Bouton pour quiter la partie en cours
+
+### Actions du joueur
+
+- Piocher une carte
+- Choisir son emplacement
+- Valider son placement
+
+---
 
 ### Scénarios
 
-Si pertinent, décrire les scénarios possibles. Possibilité de décrire pas à pas un scénario.
+- Mode classique (joueurs en opposition)
+- Mode pédagogique (avec explications après validation)
+
+---
 
 ### Contraintes de développement
 
-Tout ce qui doit encadrer le développement.
+- Application web responsive
+- Lecture des données depuis un fichier CSV distant
+
+---
 
 ### Fonctionnalités et scénarios avancés
 
-Pareil, mais qui nécessite plus de developpement.
-
+- Multilingue
+- Classements en ligne
+- Mode enseignant avec éditeur de cartes
+- Version Mobile
+- Mode thématique (cartes d’un seul secteur)
