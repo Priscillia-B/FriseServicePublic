@@ -80,7 +80,7 @@ Ou
 
 ### Actions du joueur
 
-- Piocher une carte
+- Piochage automatique une carte
 - Choisir son emplacement
 - Valider son placement
 
