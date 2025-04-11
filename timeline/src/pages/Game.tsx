@@ -198,20 +198,26 @@ export default function Game() {
         </div>
       ) : (
         <>
-          <div className="mb-10  w-full max-h-30 overflow-y-auto flex flex-col items-center scrollbar-custom">
-            <p className="text-lg">Joueur courant : {currentPlayerIndex + 1}</p>
+          <div className="mb-10 w-full max-h-30 overflow-x-auto flex flex-col items-center scrollbar-custom">
+            <p className="text-xl font-semibold mb-4">Joueur courant : {currentPlayerIndex + 1}</p>
             <div className="flex gap-2 mt-2 flex-wrap justify-center">
               {players.map((p, idx) => (
                 <div
                   key={p.id}
-                  className={`min-w-[140px] px-4 py-2 rounded text-sm text-center whitespace-nowrap ${idx === currentPlayerIndex ? "bg-blue-200" : "bg-gray-200"
+                  className={`min-w-[140px] px-4 py-2 rounded text-sm text-center whitespace-nowrap 
+          ${idx === currentPlayerIndex
+                      ? "bg-[#E63946] text-white font-bold shadow-xl transform transition-all duration-300 transform-origin-center" // Joueur courant sans agrandissement dynamique
+                      : "bg-gray-200 text-black border-2 border-gray-400" // Autres joueurs
                     }`}
                 >
-                  Joueur {p.id + 1} : {p.pv} vies
+                  {/* Joueur avec une bordure spéciale et un texte plus grand si c'est le joueur courant */}
+                  Joueur {p.id + 1} : <span className="font-extrabold">{p.pv} vies</span>
                 </div>
               ))}
             </div>
           </div>
+
+
 
           <TimelineBoard
             cards={placedCards}
@@ -219,7 +225,7 @@ export default function Game() {
             currentCard={getCurrentCard()}
             tempIndex={tempIndex}
           />
-          <div className="mt-5">
+          <div className="mt-10">
             {" "}
             <BackCard card={getCurrentCard()} />{" "}
           </div>

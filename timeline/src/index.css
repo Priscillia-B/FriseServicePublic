@@ -47,7 +47,7 @@ body {
 
 /* scrollbar-custom */
 .scrollbar-custom::-webkit-scrollbar {
-  height: 11px;
+  height: 10px;
 }
 
 .scrollbar-custom::-webkit-scrollbar-track {
@@ -65,3 +65,8 @@ body {
   background-color: #2563eb; /* couleur au hover */
   cursor: pointer;
 }
+
+
+
+
+
