@@ -24,6 +24,8 @@ function Accueil() {
   const handleStart = () => {
     if (nbPlayers === null || nbPoints === null) {
       setError("Veuillez remplir tous les champs avant de commencer !");
+    } else if (nbPlayers < 2) {
+      setError("Impossible de jouer seul !"); 
     } else {
       setError(null);
       // Passage des infos via state à la page Game
@@ -81,11 +83,11 @@ function Accueil() {
               value={nbPlayers ?? ""}
               onChange={(e) => {
                 const value = parseInt(e.target.value);
-                if (value >= 2 || isNaN(value)) {
+                if (value >= 1 || isNaN(value)) {
                   setNbPlayers(value);
                 }
               }}
-              min="2"
+              min="1"
             />
           </div>
 
