@@ -15,6 +15,8 @@
 
 Frise Service Public est une application web ludique et pédagogique dans laquelle les joueurs construisent une frise chronologique à partir d’événements liés à l’histoire des services publics en France.
 
+Les cartes sont générées dynamiquement à partir [d'un Google Sheet](https://docs.google.com/spreadsheets/d/1flhwZlPYWQPWKSotmz7wDzBZnBYAL5JJHu_-vY38zcg/edit?gid=1517720865#gid=1517720865), permettant d'en ajouter ou de les modifier facilement, et transformé en CSV lisible par l'application [via un Google Script](https://script.google.com/d/1gwuul7SrT2ylcgBz2yme4bP4STouFFODZZVs17BmSuCBu98P3qJIIJen/edit?usp=sharing).
+
 ## Captures d'écran
 
 _(À insérer)_
