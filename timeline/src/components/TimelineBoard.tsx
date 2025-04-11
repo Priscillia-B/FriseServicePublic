@@ -35,17 +35,19 @@ export const TimelineBoard: React.FC<TimelineBoardProps> = ({ cards, onTempClick
     >
       <div className="flex space-x-4 whitespace-nowrap items-center">
         {cards.map((card, i) => (<>
-          <PlaceButton key={i + 1000} to={i} onClick={onTempClick} />
-          {tempIndex !== undefined && tempIndex === i && (
+          {tempIndex !== undefined && tempIndex === i ? (
             <BackCard key={i + 500} card={currentCard} />
+          ) : (
+            <PlaceButton key={i + 1000} to={i} onClick={onTempClick} />
           )}
           <FrontCard key={card.id} card={card} />
         </>
         ))}
-        {tempIndex !== undefined && tempIndex === cards.length && (
+        {tempIndex !== undefined && tempIndex === cards.length ? (
           <BackCard key="tempCard-end" card={currentCard} />
+        ) : (
+          <PlaceButton key={999} to={cards.length} onClick={onTempClick} />
         )}
-        <PlaceButton key={999} to={cards.length} onClick={onTempClick} />
       </div>
     </div>
   );
