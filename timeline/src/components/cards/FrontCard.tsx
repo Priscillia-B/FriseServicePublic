@@ -8,7 +8,7 @@ import DetailsCardModal from "../modals/DetailsCardModal";
 export default function FrontCard({ card }: { card: Carte }) {
   const [showModal, setShowModal] = useState(false);
   return (
-    <div className="bg-[#E5ECF4] rounded-2xl shadow-lg text-black flex flex-col items-center justify-start gap-2 text-sm w-48 h-56 text-center">
+    <div className="bg-[#E5ECF4] rounded-2xl shadow-lg text-black flex flex-col items-center justify-start gap-2 text-sm w-52 h-60 text-center">
       <div className="bg-[#2D2DA0] font-semibold rounded-t-2xl py-2 mt-0 text-white w-full overflow-hidden whitespace-nowrap text-ellipsis">
         {card.thematique}
       </div>

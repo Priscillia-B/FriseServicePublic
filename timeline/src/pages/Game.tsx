@@ -187,7 +187,7 @@ export default function Game() {
         <h1 className="text-3xl font-bold mb-8">Chargement...</h1>
       ) : (
         <>
-          <div className="mb-20  w-full max-h-30 overflow-y-auto flex flex-col items-center scrollbar-custom">
+          <div className="mb-10  w-full max-h-30 overflow-y-auto flex flex-col items-center scrollbar-custom">
             <p className="text-lg">Joueur courant : {currentPlayerIndex + 1}</p>
             <div className="flex gap-2 mt-2 flex-wrap justify-center">
               {players.map((p, idx) => (
@@ -209,7 +209,7 @@ export default function Game() {
             currentCard={getCurrentCard()}
             tempIndex={tempIndex}
           />
-          <div className="mt-10">
+          <div className="mt-5">
             {" "}
             <BackCard card={getCurrentCard()} />{" "}
           </div>
