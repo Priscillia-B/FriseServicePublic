@@ -17,7 +17,7 @@ export default function FrontCard({ card }: { card: Carte }) {
         {card.date}
       </div>
 
-      <div className="font-bold text-center text-[#E63946] break-words limit-lines text-base pb-2 whitespace-normal mx-0.5">
+      <div className="font-bold text-center text-[#E63946] break-words limit-lines text-base pb-1 whitespace-normal mx-0.5">
         {card.titre}
       </div>
 
